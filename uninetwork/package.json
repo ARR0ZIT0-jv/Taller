@@ -1,0 +1,24 @@
+{
+  "name": "uninetwork",
+  "version": "1.0.0",
+  "description": "UniNetwork - Red social educativa universitaria",
+  "scripts": {
+    "dev": "wrangler pages dev --compatibility-flag=nodejs_compat -- npm run dev:frontend",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:pages": "wrangler pages dev frontend/dist --compatibility-flag=nodejs_compat",
+    "build": "cd frontend && npm run build",
+    "deploy": "npm run build && wrangler pages deploy frontend/dist",
+    "db:create": "wrangler d1 create uninetwork-db",
+    "db:migrate": "wrangler d1 execute uninetwork-db --file=./schema.sql --remote",
+    "db:migrate:local": "wrangler d1 execute uninetwork-db --file=./schema.sql",
+    "db:seed": "wrangler d1 execute uninetwork-db --file=./seed.sql --remote",
+    "db:seed:local": "wrangler d1 execute uninetwork-db --file=./seed.sql",
+    "db:reset": "wrangler d1 execute uninetwork-db --command=\"DROP TABLE IF EXISTS vocational_results; DROP TABLE IF EXISTS vocational_questions; DROP TABLE IF EXISTS career_riasec; DROP TABLE IF EXISTS post_likes; DROP TABLE IF EXISTS comments; DROP TABLE IF EXISTS connections; DROP TABLE IF EXISTS posts; DROP TABLE IF EXISTS users; DROP TABLE IF EXISTS careers; DROP TABLE IF EXISTS universities;\" --remote"
+  },
+  "devDependencies": {
+    "wrangler": "^3.114.17"
+  },
+  "dependencies": {
+    "hono": "^4.12.18"
+  }
+}

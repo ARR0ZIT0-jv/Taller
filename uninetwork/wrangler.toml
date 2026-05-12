@@ -1,0 +1,9 @@
+name = "uninetwork"
+compatibility_date = "2024-09-23"
+compatibility_flags = ["nodejs_compat"]
+pages_build_output_dir = "./frontend/dist"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "uninetwork-db"
+database_id = "REPLACE_WITH_YOUR_D1_DATABASE_ID"
