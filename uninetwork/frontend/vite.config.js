@@ -5,10 +5,10 @@ export default defineConfig({
   plugins: [react()],
   server: {
     port: 5173,
-    // In dev, proxy /api to wrangler pages dev (port 8788)
+    // In dev, proxy /api to Express backend (port 3001)
     proxy: {
       '/api': {
-        target: 'http://localhost:8788',
+        target: 'http://localhost:3001',
         changeOrigin: true,
       }
     }
