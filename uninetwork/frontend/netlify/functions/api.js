@@ -2,9 +2,9 @@ import { Hono } from 'hono';
 import { handle } from 'hono/netlify';
 import { createClient } from '@libsql/client/web';
 import { cors } from 'hono/cors';
-import { hashPassword, verifyPassword, generateToken, verifyToken } from '../lib/auth.js';
-import { validateCI, normalizeCI } from '../lib/ciValidator.js';
-import { calculateScores, generateProfileLabel, matchCareers, CATEGORIES, CATEGORY_LABELS, CATEGORY_DESCRIPTIONS } from '../lib/riasecEngine.js';
+import { hashPassword, verifyPassword, generateToken, verifyToken } from './lib/auth.js';
+import { validateCI, normalizeCI } from './lib/ciValidator.js';
+import { calculateScores, generateProfileLabel, matchCareers, CATEGORIES, CATEGORY_LABELS, CATEGORY_DESCRIPTIONS } from './lib/riasecEngine.js';
 
 const app = new Hono();
 
