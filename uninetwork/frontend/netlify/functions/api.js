@@ -52,7 +52,7 @@ app.post('/api/auth/register', async c => {
   if (!ciVal.valid) return c.json({ error: ciVal.error }, 400);
   if (academic_status === 'university' && !university_id)
     return c.json({ error: 'Los estudiantes universitarios deben seleccionar su universidad.' }, 400);
-  const D = c.env.DB;
+  const D = null;
   const existing = await db.get(D, 'SELECT id FROM users WHERE email = ?', email);
   if (existing) return c.json({ error: 'Este correo electrónico ya está registrado.' }, 409);
   const passwordHash = await hashPassword(password);
@@ -75,7 +75,7 @@ app.post('/api/auth/register', async c => {
 app.post('/api/auth/login', async c => {
   const { email, password } = await c.req.json();
   if (!email || !password) return c.json({ error: 'Email y contraseña son obligatorios.' }, 400);
-  const D = c.env.DB;
+  const D = null;
   const user = await db.get(D, `SELECT u.*,un.name as university_name,un.acronym as university_acronym FROM users u LEFT JOIN universities un ON u.university_id=un.id WHERE u.email=?`, email);
   if (!user) return c.json({ error: 'Credenciales incorrectas.' }, 401);
   const ok = await verifyPassword(password, user.password_hash);
@@ -86,7 +86,7 @@ app.post('/api/auth/login', async c => {
 });
 
 app.get('/api/auth/me', auth, async c => {
-  const D = c.env.DB;
+  const D = null;
   const user = await db.get(D, `SELECT u.id,u.full_name,u.email,u.academic_status,u.university_id,u.career_id,u.bio,u.profile_pic,u.cover_pic,u.interests,u.graduation_year,u.created_at,un.name as university_name,un.acronym as university_acronym,ca.name as career_name FROM users u LEFT JOIN universities un ON u.university_id=un.id LEFT JOIN careers ca ON u.career_id=ca.id WHERE u.id=?`, c.get('user').id);
   if (!user) return c.json({ error: 'Usuario no encontrado.' }, 404);
   return c.json({ user });
@@ -107,7 +107,7 @@ app.get('/api/universities', async c => {
 });
 
 app.get('/api/universities/:id', async c => {
-  const D = c.env.DB;
+  const D = null;
   const university = await db.get(D, 'SELECT * FROM universities WHERE id=?', c.req.param('id'));
   if (!university) return c.json({ error: 'Universidad no encontrada.' }, 404);
   const careers = await db.all(D, 'SELECT * FROM careers WHERE university_id=? ORDER BY faculty,name', c.req.param('id'));
@@ -118,7 +118,7 @@ app.get('/api/universities/:id', async c => {
 // ── CAREERS ───────────────────────────────────────────────────────────────────
 app.get('/api/careers', async c => {
   const { query, faculty, country, type, page = 1, limit = 20 } = c.req.query();
-  const D = c.env.DB;
+  const D = null;
   const all = await db.all(D, `SELECT c.id,c.name,c.faculty,c.duration_years,c.degree_title,c.curriculum_summary,u.id as university_id,u.name as university_name,u.acronym as university_acronym,u.country,u.city,u.type as university_type,u.website FROM careers c JOIN universities u ON c.university_id=u.id ORDER BY c.name ASC`);
   const norm = s => s?.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase() || '';
   let filtered = all;
@@ -148,7 +148,7 @@ app.get('/api/careers/:id', async c => {
 
 // ── POSTS ─────────────────────────────────────────────────────────────────────
 app.get('/api/posts/feed', auth, async c => {
-  const D = c.env.DB; const { page=1, limit=20 } = c.req.query();
+  const D = null; const { page=1, limit=20 } = c.req.query();
   const offset = (parseInt(page)-1)*parseInt(limit);
   const posts = await db.all(D, `SELECT p.*,u.full_name as author_name,u.profile_pic as author_pic,u.academic_status,un.name as university_name,un.acronym as university_acronym,(SELECT COUNT(*) FROM comments WHERE post_id=p.id) as comments_count,(SELECT COUNT(*) FROM post_likes WHERE post_id=p.id) as like_count,(SELECT COUNT(*) FROM post_likes WHERE post_id=p.id AND user_id=?) as liked_by_me FROM posts p JOIN users u ON p.user_id=u.id LEFT JOIN universities un ON u.university_id=un.id ORDER BY p.created_at DESC LIMIT ? OFFSET ?`, c.get('user').id, parseInt(limit), offset);
   const t = await db.get(D, 'SELECT COUNT(*) as total FROM posts');
@@ -158,7 +158,7 @@ app.get('/api/posts/feed', auth, async c => {
 app.post('/api/posts', auth, async c => {
   const { content } = await c.req.json();
   if (!content?.trim()) return c.json({ error: 'El contenido del post es obligatorio.' }, 400);
-  const D = c.env.DB;
+  const D = null;
   const r = await db.run(D, 'INSERT INTO posts (user_id,content) VALUES (?,?)', c.get('user').id, content.trim());
   const post = await db.get(D, `SELECT p.*,u.full_name as author_name,u.profile_pic as author_pic,u.academic_status,un.name as university_name,un.acronym as university_acronym FROM posts p JOIN users u ON p.user_id=u.id LEFT JOIN universities un ON u.university_id=un.id WHERE p.id=?`, r.meta.last_row_id);
   return c.json({ post: { ...post, comments_count:0, like_count:0, liked_by_me:0 } }, 201);
@@ -172,14 +172,14 @@ app.get('/api/posts/:postId/comments', auth, async c => {
 app.post('/api/posts/:postId/comments', auth, async c => {
   const { content } = await c.req.json();
   if (!content?.trim()) return c.json({ error: 'El comentario no puede estar vacío.' }, 400);
-  const D = c.env.DB;
+  const D = null;
   const r = await db.run(D, 'INSERT INTO comments (post_id,user_id,content) VALUES (?,?,?)', c.req.param('postId'), c.get('user').id, content.trim());
   const comment = await db.get(D, `SELECT co.*,u.full_name as author_name,u.profile_pic as author_pic,un.acronym as university_acronym FROM comments co JOIN users u ON co.user_id=u.id LEFT JOIN universities un ON u.university_id=un.id WHERE co.id=?`, r.meta.last_row_id);
   return c.json({ comment }, 201);
 });
 
 app.post('/api/posts/:postId/like', auth, async c => {
-  const D = c.env.DB; const { id: userId } = c.get('user'); const postId = c.req.param('postId');
+  const D = null; const { id: userId } = c.get('user'); const postId = c.req.param('postId');
   const existing = await db.get(D, 'SELECT 1 FROM post_likes WHERE user_id=? AND post_id=?', userId, postId);
   if (existing) { await db.run(D, 'DELETE FROM post_likes WHERE user_id=? AND post_id=?', userId, postId); }
   else          { await db.run(D, 'INSERT INTO post_likes (user_id,post_id) VALUES (?,?)', userId, postId); }
@@ -188,7 +188,7 @@ app.post('/api/posts/:postId/like', auth, async c => {
 });
 
 app.delete('/api/posts/:id', auth, async c => {
-  const D = c.env.DB;
+  const D = null;
   const post = await db.get(D, 'SELECT * FROM posts WHERE id=? AND user_id=?', c.req.param('id'), c.get('user').id);
   if (!post) return c.json({ error: 'Post no encontrado.' }, 404);
   await db.run(D, 'DELETE FROM posts WHERE id=?', c.req.param('id'));
@@ -197,7 +197,7 @@ app.delete('/api/posts/:id', auth, async c => {
 
 // ── PROFILE ───────────────────────────────────────────────────────────────────
 app.get('/api/profile/:userId', auth, async c => {
-  const D = c.env.DB; const userId = c.req.param('userId');
+  const D = null; const userId = c.req.param('userId');
   const user = await db.get(D, `SELECT u.id,u.full_name,u.email,u.academic_status,u.university_id,u.career_id,u.bio,u.profile_pic,u.cover_pic,u.interests,u.graduation_year,u.created_at,un.name as university_name,un.acronym as university_acronym,un.city as university_city,ca.name as career_name,ca.faculty FROM users u LEFT JOIN universities un ON u.university_id=un.id LEFT JOIN careers ca ON u.career_id=ca.id WHERE u.id=?`, userId);
   if (!user) return c.json({ error: 'Usuario no encontrado.' }, 404);
   const posts = await db.all(D, `SELECT p.*,(SELECT COUNT(*) FROM comments WHERE post_id=p.id) as comments_count,(SELECT COUNT(*) FROM post_likes WHERE post_id=p.id) as like_count,(SELECT COUNT(*) FROM post_likes WHERE post_id=p.id AND user_id=?) as liked_by_me FROM posts p WHERE p.user_id=? ORDER BY p.created_at DESC`, c.get('user').id, userId);
@@ -211,7 +211,7 @@ app.get('/api/profile/:userId', auth, async c => {
 });
 
 app.get('/api/profile', auth, async c => {
-  const D = c.env.DB;
+  const D = null;
   const user = await db.get(D, `SELECT u.id,u.full_name,u.email,u.academic_status,u.university_id,u.career_id,u.bio,u.profile_pic,u.cover_pic,u.interests,u.graduation_year,u.created_at,un.name as university_name,un.acronym as university_acronym,ca.name as career_name,ca.faculty FROM users u LEFT JOIN universities un ON u.university_id=un.id LEFT JOIN careers ca ON u.career_id=ca.id WHERE u.id=?`, c.get('user').id);
   if (!user) return c.json({ error: 'Usuario no encontrado.' }, 404);
   const posts = await db.all(D, `SELECT p.*,(SELECT COUNT(*) FROM comments WHERE post_id=p.id) as comments_count,(SELECT COUNT(*) FROM post_likes WHERE post_id=p.id) as like_count,0 as liked_by_me FROM posts p WHERE p.user_id=? ORDER BY p.created_at DESC`, c.get('user').id);
@@ -221,14 +221,14 @@ app.get('/api/profile', auth, async c => {
 
 app.put('/api/profile', auth, async c => {
   const { bio, interests, profile_pic, cover_pic } = await c.req.json();
-  const D = c.env.DB;
+  const D = null;
   await db.run(D, `UPDATE users SET bio=COALESCE(?,bio),interests=COALESCE(?,interests),profile_pic=COALESCE(?,profile_pic),cover_pic=COALESCE(?,cover_pic) WHERE id=?`, bio, interests, profile_pic, cover_pic, c.get('user').id);
   const user = await db.get(D, 'SELECT id,full_name,email,academic_status,bio,profile_pic,cover_pic,interests FROM users WHERE id=?', c.get('user').id);
   return c.json({ user, message: 'Perfil actualizado.' });
 });
 
 app.post('/api/profile/:userId/connect', auth, async c => {
-  const D = c.env.DB; const receiverId = parseInt(c.req.param('userId'));
+  const D = null; const receiverId = parseInt(c.req.param('userId'));
   if (receiverId === c.get('user').id) return c.json({ error: 'No puedes conectarte contigo mismo.' }, 400);
   const existing = await db.get(D, `SELECT * FROM connections WHERE (requester_id=? AND receiver_id=?) OR (requester_id=? AND receiver_id=?)`, c.get('user').id, receiverId, receiverId, c.get('user').id);
   if (existing) return c.json({ error: 'Ya existe una solicitud de conexión.', status: existing.status }, 409);
@@ -238,7 +238,7 @@ app.post('/api/profile/:userId/connect', auth, async c => {
 
 app.put('/api/profile/connections/:connectionId', auth, async c => {
   const { action } = await c.req.json();
-  const D = c.env.DB;
+  const D = null;
   const conn = await db.get(D, `SELECT * FROM connections WHERE id=? AND receiver_id=? AND status='pending'`, c.req.param('connectionId'), c.get('user').id);
   if (!conn) return c.json({ error: 'Solicitud no encontrada.' }, 404);
   const newStatus = action === 'accept' ? 'accepted' : 'rejected';
@@ -247,13 +247,13 @@ app.put('/api/profile/connections/:connectionId', auth, async c => {
 });
 
 app.get('/api/profile/connections', auth, async c => {
-  const D = c.env.DB; const uid = c.get('user').id;
+  const D = null; const uid = c.get('user').id;
   const connections = await db.all(D, `SELECT u.id,u.full_name,u.profile_pic,u.academic_status,u.bio,un.name as university_name,un.acronym as university_acronym FROM connections co JOIN users u ON (CASE WHEN co.requester_id=? THEN co.receiver_id ELSE co.requester_id END)=u.id LEFT JOIN universities un ON u.university_id=un.id WHERE (co.requester_id=? OR co.receiver_id=?) AND co.status='accepted'`, uid, uid, uid);
   return c.json({ connections });
 });
 
 app.get('/api/profile/suggestions', auth, async c => {
-  const D = c.env.DB; const uid = c.get('user').id;
+  const D = null; const uid = c.get('user').id;
   const user = await db.get(D, 'SELECT * FROM users WHERE id=?', uid);
   if (!user) return c.json({ error: 'Usuario no encontrado.' }, 404);
   if (user.academic_status === 'high_school' && user.interests) {
@@ -284,7 +284,7 @@ app.post('/api/vocational/submit', auth, async c => {
   const { answers } = await c.req.json();
   if (!answers || !Array.isArray(answers) || answers.length === 0)
     return c.json({ error: 'Respuestas requeridas.' }, 400);
-  const D = c.env.DB;
+  const D = null;
   const questions = await db.all(D, 'SELECT id,category,weight FROM vocational_questions');
   const qMap = Object.fromEntries(questions.map(q => [q.id, q]));
   const enriched = answers.map(a => ({ questionId: a.questionId, answer: Math.min(5,Math.max(1,parseInt(a.answer)||3)), category: qMap[a.questionId]?.category||'R', weight: qMap[a.questionId]?.weight||1 }));
@@ -303,7 +303,7 @@ app.get('/api/vocational/results', auth, async c => {
 });
 
 app.get('/api/vocational/results/latest', auth, async c => {
-  const D = c.env.DB;
+  const D = null;
   const result = await db.get(D, 'SELECT * FROM vocational_results WHERE user_id=? ORDER BY created_at DESC LIMIT 1', c.get('user').id);
   if (!result) return c.json({ result: null });
   const careerIds = JSON.parse(result.recommended_careers || '[]');
