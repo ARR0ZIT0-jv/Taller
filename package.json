@@ -3,5 +3,8 @@
   "private": true,
   "scripts": {
     "build": "cd uninetwork && npm install && npm run build"
+  },
+  "dependencies": {
+    "@libsql/client": "^0.17.3"
   }
 }
