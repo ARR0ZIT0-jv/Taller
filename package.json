@@ -1,0 +1,7 @@
+{
+  "name": "facebook-univ-root",
+  "private": true,
+  "scripts": {
+    "build": "cd uninetwork && npm install && npm run build"
+  }
+}
