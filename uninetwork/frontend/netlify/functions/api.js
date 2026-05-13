@@ -6,9 +6,13 @@ import { hashPassword, verifyPassword, generateToken, verifyToken } from './lib/
 import { validateCI, normalizeCI } from './lib/ciValidator.js';
 import { calculateScores, generateProfileLabel, matchCareers, CATEGORIES, CATEGORY_LABELS, CATEGORY_DESCRIPTIONS } from './lib/riasecEngine.js';
 
-const app = new Hono().basePath('/.netlify/functions');
+const app = new Hono();
 
 app.use('*', cors({ origin: '*', allowMethods: ['GET','POST','PUT','DELETE','OPTIONS'], allowHeaders: ['Content-Type','Authorization'] }));
+app.all('*', async (c, next) => {
+  console.log('Incoming path:', c.req.path);
+  return next();
+});
 
 // ── Auth middleware ──────────────────────────────────────────────────────────
 async function auth(c, next) {
