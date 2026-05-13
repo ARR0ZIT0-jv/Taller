@@ -3,3 +3,7 @@ compatibility_date = "2024-09-23"
 compatibility_flags = ["nodejs_compat"]
 pages_build_output_dir = "./frontend/dist"
 
+[[d1_databases]]
+binding = "DB"
+database_name = "uninetwork-db"
+database_id = "58c3061d-d9c7-4dc5-9f0d-68cd681f2fd9"

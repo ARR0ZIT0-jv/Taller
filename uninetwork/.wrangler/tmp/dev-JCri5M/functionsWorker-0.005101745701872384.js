@@ -6,7 +6,7 @@ var __publicField = (obj, key, value) => {
   return value;
 };
 
-// ../.wrangler/tmp/bundle-pJiSxi/strip-cf-connecting-ip-header.js
+// .wrangler/tmp/bundle-qtP1yw/strip-cf-connecting-ip-header.js
 function stripCfConnectingIPHeader(input, init) {
   const request = new Request(input, init);
   request.headers.delete("CF-Connecting-IP");
@@ -21,7 +21,7 @@ globalThis.fetch = new Proxy(globalThis.fetch, {
   }
 });
 
-// ../node_modules/unenv/dist/runtime/_internal/utils.mjs
+// node_modules/unenv/dist/runtime/_internal/utils.mjs
 function createNotImplementedError(name) {
   return new Error(`[unenv] ${name} is not implemented yet!`);
 }
@@ -43,7 +43,7 @@ function notImplementedClass(name) {
 }
 __name(notImplementedClass, "notImplementedClass");
 
-// ../node_modules/unenv/dist/runtime/node/internal/perf_hooks/performance.mjs
+// node_modules/unenv/dist/runtime/node/internal/perf_hooks/performance.mjs
 var _timeOrigin = globalThis.performance?.timeOrigin ?? Date.now();
 var _performanceNow = globalThis.performance?.now ? globalThis.performance.now.bind(globalThis.performance) : () => Date.now() - _timeOrigin;
 var nodeTiming = {
@@ -266,7 +266,7 @@ __name(PerformanceObserver, "PerformanceObserver");
 __publicField(PerformanceObserver, "supportedEntryTypes", []);
 var performance = globalThis.performance && "addEventListener" in globalThis.performance ? globalThis.performance : new Performance();
 
-// ../node_modules/@cloudflare/unenv-preset/dist/runtime/polyfill/performance.mjs
+// node_modules/@cloudflare/unenv-preset/dist/runtime/polyfill/performance.mjs
 globalThis.performance = performance;
 globalThis.Performance = Performance;
 globalThis.PerformanceEntry = PerformanceEntry;
@@ -276,14 +276,14 @@ globalThis.PerformanceObserver = PerformanceObserver;
 globalThis.PerformanceObserverEntryList = PerformanceObserverEntryList;
 globalThis.PerformanceResourceTiming = PerformanceResourceTiming;
 
-// ../node_modules/unenv/dist/runtime/node/console.mjs
+// node_modules/unenv/dist/runtime/node/console.mjs
 import { Writable } from "node:stream";
 
-// ../node_modules/unenv/dist/runtime/mock/noop.mjs
+// node_modules/unenv/dist/runtime/mock/noop.mjs
 var noop_default = Object.assign(() => {
 }, { __unenv__: true });
 
-// ../node_modules/unenv/dist/runtime/node/console.mjs
+// node_modules/unenv/dist/runtime/node/console.mjs
 var _console = globalThis.console;
 var _ignoreErrors = true;
 var _stderr = new Writable();
@@ -315,7 +315,7 @@ var _times = /* @__PURE__ */ new Map();
 var _stdoutErrorHandler = noop_default;
 var _stderrErrorHandler = noop_default;
 
-// ../node_modules/@cloudflare/unenv-preset/dist/runtime/node/console.mjs
+// node_modules/@cloudflare/unenv-preset/dist/runtime/node/console.mjs
 var workerdConsole = globalThis["console"];
 var {
   assert,
@@ -356,10 +356,10 @@ Object.assign(workerdConsole, {
 });
 var console_default = workerdConsole;
 
-// ../node_modules/wrangler/_virtual_unenv_global_polyfill-@cloudflare-unenv-preset-node-console
+// node_modules/wrangler/_virtual_unenv_global_polyfill-@cloudflare-unenv-preset-node-console
 globalThis.console = console_default;
 
-// ../node_modules/unenv/dist/runtime/node/internal/process/hrtime.mjs
+// node_modules/unenv/dist/runtime/node/internal/process/hrtime.mjs
 var hrtime = /* @__PURE__ */ Object.assign(/* @__PURE__ */ __name(function hrtime2(startTime) {
   const now = Date.now();
   const seconds = Math.trunc(now / 1e3);
@@ -378,10 +378,10 @@ var hrtime = /* @__PURE__ */ Object.assign(/* @__PURE__ */ __name(function hrtim
   return BigInt(Date.now() * 1e6);
 }, "bigint") });
 
-// ../node_modules/unenv/dist/runtime/node/internal/process/process.mjs
+// node_modules/unenv/dist/runtime/node/internal/process/process.mjs
 import { EventEmitter } from "node:events";
 
-// ../node_modules/unenv/dist/runtime/node/internal/tty/read-stream.mjs
+// node_modules/unenv/dist/runtime/node/internal/tty/read-stream.mjs
 import { Socket } from "node:net";
 var ReadStream = class extends Socket {
   fd;
@@ -398,7 +398,7 @@ var ReadStream = class extends Socket {
 };
 __name(ReadStream, "ReadStream");
 
-// ../node_modules/unenv/dist/runtime/node/internal/tty/write-stream.mjs
+// node_modules/unenv/dist/runtime/node/internal/tty/write-stream.mjs
 import { Socket as Socket2 } from "node:net";
 var WriteStream = class extends Socket2 {
   fd;
@@ -406,7 +406,7 @@ var WriteStream = class extends Socket2 {
     super();
     this.fd = fd;
   }
-  clearLine(dir3, callback) {
+  clearLine(dir4, callback) {
     callback && callback();
     return false;
   }
@@ -422,10 +422,10 @@ var WriteStream = class extends Socket2 {
     callback && callback();
     return false;
   }
-  getColorDepth(env2) {
+  getColorDepth(env3) {
     return 1;
   }
-  hasColors(count3, env2) {
+  hasColors(count4, env3) {
     return false;
   }
   getWindowSize() {
@@ -437,7 +437,7 @@ var WriteStream = class extends Socket2 {
 };
 __name(WriteStream, "WriteStream");
 
-// ../node_modules/unenv/dist/runtime/node/internal/process/process.mjs
+// node_modules/unenv/dist/runtime/node/internal/process/process.mjs
 var Process = class extends EventEmitter {
   env;
   hrtime;
@@ -476,8 +476,8 @@ var Process = class extends EventEmitter {
     return this.#stderr ??= new WriteStream(2);
   }
   #cwd = "/";
-  chdir(cwd2) {
-    this.#cwd = cwd2;
+  chdir(cwd3) {
+    this.#cwd = cwd3;
   }
   cwd() {
     return this.#cwd;
@@ -660,7 +660,7 @@ var Process = class extends EventEmitter {
 };
 __name(Process, "Process");
 
-// ../node_modules/@cloudflare/unenv-preset/dist/runtime/node/process.mjs
+// node_modules/@cloudflare/unenv-preset/dist/runtime/node/process.mjs
 var globalProcess = globalThis["process"];
 var getBuiltinModule = globalProcess.getBuiltinModule;
 var { exit, platform, nextTick } = getBuiltinModule(
@@ -888,12 +888,876 @@ var _process = {
 };
 var process_default = _process;
 
-// ../node_modules/wrangler/_virtual_unenv_global_polyfill-@cloudflare-unenv-preset-node-process
+// node_modules/wrangler/_virtual_unenv_global_polyfill-@cloudflare-unenv-preset-node-process
 globalThis.process = process_default;
 
-// ../node_modules/hono/dist/compose.js
-var compose = /* @__PURE__ */ __name((middleware, onError, onNotFound) => {
-  return (context2, next) => {
+// .wrangler/tmp/pages-144eHK/functionsWorker-0.005101745701872384.mjs
+import { Writable as Writable2 } from "node:stream";
+import { EventEmitter as EventEmitter2 } from "node:events";
+import { Socket as Socket3 } from "node:net";
+import { Socket as Socket22 } from "node:net";
+var __defProp2 = Object.defineProperty;
+var __defNormalProp2 = /* @__PURE__ */ __name((obj, key, value) => key in obj ? __defProp2(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value, "__defNormalProp");
+var __name2 = /* @__PURE__ */ __name((target, value) => __defProp2(target, "name", { value, configurable: true }), "__name");
+var __publicField2 = /* @__PURE__ */ __name((obj, key, value) => {
+  __defNormalProp2(obj, typeof key !== "symbol" ? key + "" : key, value);
+  return value;
+}, "__publicField");
+function stripCfConnectingIPHeader2(input, init) {
+  const request = new Request(input, init);
+  request.headers.delete("CF-Connecting-IP");
+  return request;
+}
+__name(stripCfConnectingIPHeader2, "stripCfConnectingIPHeader");
+__name2(stripCfConnectingIPHeader2, "stripCfConnectingIPHeader");
+globalThis.fetch = new Proxy(globalThis.fetch, {
+  apply(target, thisArg, argArray) {
+    return Reflect.apply(target, thisArg, [
+      stripCfConnectingIPHeader2.apply(null, argArray)
+    ]);
+  }
+});
+function createNotImplementedError2(name) {
+  return new Error(`[unenv] ${name} is not implemented yet!`);
+}
+__name(createNotImplementedError2, "createNotImplementedError");
+__name2(createNotImplementedError2, "createNotImplementedError");
+function notImplemented2(name) {
+  const fn = /* @__PURE__ */ __name2(() => {
+    throw createNotImplementedError2(name);
+  }, "fn");
+  return Object.assign(fn, { __unenv__: true });
+}
+__name(notImplemented2, "notImplemented");
+__name2(notImplemented2, "notImplemented");
+function notImplementedClass2(name) {
+  return class {
+    __unenv__ = true;
+    constructor() {
+      throw new Error(`[unenv] ${name} is not implemented yet!`);
+    }
+  };
+}
+__name(notImplementedClass2, "notImplementedClass");
+__name2(notImplementedClass2, "notImplementedClass");
+var _timeOrigin2 = globalThis.performance?.timeOrigin ?? Date.now();
+var _performanceNow2 = globalThis.performance?.now ? globalThis.performance.now.bind(globalThis.performance) : () => Date.now() - _timeOrigin2;
+var nodeTiming2 = {
+  name: "node",
+  entryType: "node",
+  startTime: 0,
+  duration: 0,
+  nodeStart: 0,
+  v8Start: 0,
+  bootstrapComplete: 0,
+  environment: 0,
+  loopStart: 0,
+  loopExit: 0,
+  idleTime: 0,
+  uvMetricsInfo: {
+    loopCount: 0,
+    events: 0,
+    eventsWaiting: 0
+  },
+  detail: void 0,
+  toJSON() {
+    return this;
+  }
+};
+var PerformanceEntry2 = /* @__PURE__ */ __name(class {
+  __unenv__ = true;
+  detail;
+  entryType = "event";
+  name;
+  startTime;
+  constructor(name, options) {
+    this.name = name;
+    this.startTime = options?.startTime || _performanceNow2();
+    this.detail = options?.detail;
+  }
+  get duration() {
+    return _performanceNow2() - this.startTime;
+  }
+  toJSON() {
+    return {
+      name: this.name,
+      entryType: this.entryType,
+      startTime: this.startTime,
+      duration: this.duration,
+      detail: this.detail
+    };
+  }
+}, "PerformanceEntry");
+__name2(PerformanceEntry2, "PerformanceEntry");
+var PerformanceMark3 = /* @__PURE__ */ __name2(/* @__PURE__ */ __name(class PerformanceMark22 extends PerformanceEntry2 {
+  entryType = "mark";
+  constructor() {
+    super(...arguments);
+  }
+  get duration() {
+    return 0;
+  }
+}, "PerformanceMark2"), "PerformanceMark");
+var PerformanceMeasure2 = /* @__PURE__ */ __name(class extends PerformanceEntry2 {
+  entryType = "measure";
+}, "PerformanceMeasure");
+__name2(PerformanceMeasure2, "PerformanceMeasure");
+var PerformanceResourceTiming2 = /* @__PURE__ */ __name(class extends PerformanceEntry2 {
+  entryType = "resource";
+  serverTiming = [];
+  connectEnd = 0;
+  connectStart = 0;
+  decodedBodySize = 0;
+  domainLookupEnd = 0;
+  domainLookupStart = 0;
+  encodedBodySize = 0;
+  fetchStart = 0;
+  initiatorType = "";
+  name = "";
+  nextHopProtocol = "";
+  redirectEnd = 0;
+  redirectStart = 0;
+  requestStart = 0;
+  responseEnd = 0;
+  responseStart = 0;
+  secureConnectionStart = 0;
+  startTime = 0;
+  transferSize = 0;
+  workerStart = 0;
+  responseStatus = 0;
+}, "PerformanceResourceTiming");
+__name2(PerformanceResourceTiming2, "PerformanceResourceTiming");
+var PerformanceObserverEntryList2 = /* @__PURE__ */ __name(class {
+  __unenv__ = true;
+  getEntries() {
+    return [];
+  }
+  getEntriesByName(_name, _type) {
+    return [];
+  }
+  getEntriesByType(type) {
+    return [];
+  }
+}, "PerformanceObserverEntryList");
+__name2(PerformanceObserverEntryList2, "PerformanceObserverEntryList");
+var Performance2 = /* @__PURE__ */ __name(class {
+  __unenv__ = true;
+  timeOrigin = _timeOrigin2;
+  eventCounts = /* @__PURE__ */ new Map();
+  _entries = [];
+  _resourceTimingBufferSize = 0;
+  navigation = void 0;
+  timing = void 0;
+  timerify(_fn, _options) {
+    throw createNotImplementedError2("Performance.timerify");
+  }
+  get nodeTiming() {
+    return nodeTiming2;
+  }
+  eventLoopUtilization() {
+    return {};
+  }
+  markResourceTiming() {
+    return new PerformanceResourceTiming2("");
+  }
+  onresourcetimingbufferfull = null;
+  now() {
+    if (this.timeOrigin === _timeOrigin2) {
+      return _performanceNow2();
+    }
+    return Date.now() - this.timeOrigin;
+  }
+  clearMarks(markName) {
+    this._entries = markName ? this._entries.filter((e) => e.name !== markName) : this._entries.filter((e) => e.entryType !== "mark");
+  }
+  clearMeasures(measureName) {
+    this._entries = measureName ? this._entries.filter((e) => e.name !== measureName) : this._entries.filter((e) => e.entryType !== "measure");
+  }
+  clearResourceTimings() {
+    this._entries = this._entries.filter((e) => e.entryType !== "resource" || e.entryType !== "navigation");
+  }
+  getEntries() {
+    return this._entries;
+  }
+  getEntriesByName(name, type) {
+    return this._entries.filter((e) => e.name === name && (!type || e.entryType === type));
+  }
+  getEntriesByType(type) {
+    return this._entries.filter((e) => e.entryType === type);
+  }
+  mark(name, options) {
+    const entry = new PerformanceMark3(name, options);
+    this._entries.push(entry);
+    return entry;
+  }
+  measure(measureName, startOrMeasureOptions, endMark) {
+    let start;
+    let end;
+    if (typeof startOrMeasureOptions === "string") {
+      start = this.getEntriesByName(startOrMeasureOptions, "mark")[0]?.startTime;
+      end = this.getEntriesByName(endMark, "mark")[0]?.startTime;
+    } else {
+      start = Number.parseFloat(startOrMeasureOptions?.start) || this.now();
+      end = Number.parseFloat(startOrMeasureOptions?.end) || this.now();
+    }
+    const entry = new PerformanceMeasure2(measureName, {
+      startTime: start,
+      detail: {
+        start,
+        end
+      }
+    });
+    this._entries.push(entry);
+    return entry;
+  }
+  setResourceTimingBufferSize(maxSize) {
+    this._resourceTimingBufferSize = maxSize;
+  }
+  addEventListener(type, listener, options) {
+    throw createNotImplementedError2("Performance.addEventListener");
+  }
+  removeEventListener(type, listener, options) {
+    throw createNotImplementedError2("Performance.removeEventListener");
+  }
+  dispatchEvent(event) {
+    throw createNotImplementedError2("Performance.dispatchEvent");
+  }
+  toJSON() {
+    return this;
+  }
+}, "Performance");
+__name2(Performance2, "Performance");
+var PerformanceObserver2 = /* @__PURE__ */ __name(class {
+  __unenv__ = true;
+  _callback = null;
+  constructor(callback) {
+    this._callback = callback;
+  }
+  takeRecords() {
+    return [];
+  }
+  disconnect() {
+    throw createNotImplementedError2("PerformanceObserver.disconnect");
+  }
+  observe(options) {
+    throw createNotImplementedError2("PerformanceObserver.observe");
+  }
+  bind(fn) {
+    return fn;
+  }
+  runInAsyncScope(fn, thisArg, ...args) {
+    return fn.call(thisArg, ...args);
+  }
+  asyncId() {
+    return 0;
+  }
+  triggerAsyncId() {
+    return 0;
+  }
+  emitDestroy() {
+    return this;
+  }
+}, "PerformanceObserver");
+__name2(PerformanceObserver2, "PerformanceObserver");
+__publicField2(PerformanceObserver2, "supportedEntryTypes", []);
+var performance2 = globalThis.performance && "addEventListener" in globalThis.performance ? globalThis.performance : new Performance2();
+globalThis.performance = performance2;
+globalThis.Performance = Performance2;
+globalThis.PerformanceEntry = PerformanceEntry2;
+globalThis.PerformanceMark = PerformanceMark3;
+globalThis.PerformanceMeasure = PerformanceMeasure2;
+globalThis.PerformanceObserver = PerformanceObserver2;
+globalThis.PerformanceObserverEntryList = PerformanceObserverEntryList2;
+globalThis.PerformanceResourceTiming = PerformanceResourceTiming2;
+var noop_default2 = Object.assign(() => {
+}, { __unenv__: true });
+var _console2 = globalThis.console;
+var _ignoreErrors2 = true;
+var _stderr2 = new Writable2();
+var _stdout2 = new Writable2();
+var log3 = _console2?.log ?? noop_default2;
+var info3 = _console2?.info ?? log3;
+var trace3 = _console2?.trace ?? info3;
+var debug3 = _console2?.debug ?? log3;
+var table3 = _console2?.table ?? log3;
+var error3 = _console2?.error ?? log3;
+var warn3 = _console2?.warn ?? error3;
+var createTask3 = _console2?.createTask ?? /* @__PURE__ */ notImplemented2("console.createTask");
+var clear3 = _console2?.clear ?? noop_default2;
+var count3 = _console2?.count ?? noop_default2;
+var countReset3 = _console2?.countReset ?? noop_default2;
+var dir3 = _console2?.dir ?? noop_default2;
+var dirxml3 = _console2?.dirxml ?? noop_default2;
+var group3 = _console2?.group ?? noop_default2;
+var groupEnd3 = _console2?.groupEnd ?? noop_default2;
+var groupCollapsed3 = _console2?.groupCollapsed ?? noop_default2;
+var profile3 = _console2?.profile ?? noop_default2;
+var profileEnd3 = _console2?.profileEnd ?? noop_default2;
+var time3 = _console2?.time ?? noop_default2;
+var timeEnd3 = _console2?.timeEnd ?? noop_default2;
+var timeLog3 = _console2?.timeLog ?? noop_default2;
+var timeStamp3 = _console2?.timeStamp ?? noop_default2;
+var Console2 = _console2?.Console ?? /* @__PURE__ */ notImplementedClass2("console.Console");
+var _times2 = /* @__PURE__ */ new Map();
+var _stdoutErrorHandler2 = noop_default2;
+var _stderrErrorHandler2 = noop_default2;
+var workerdConsole2 = globalThis["console"];
+var {
+  assert: assert3,
+  clear: clear22,
+  // @ts-expect-error undocumented public API
+  context: context2,
+  count: count22,
+  countReset: countReset22,
+  // @ts-expect-error undocumented public API
+  createTask: createTask22,
+  debug: debug22,
+  dir: dir22,
+  dirxml: dirxml22,
+  error: error22,
+  group: group22,
+  groupCollapsed: groupCollapsed22,
+  groupEnd: groupEnd22,
+  info: info22,
+  log: log22,
+  profile: profile22,
+  profileEnd: profileEnd22,
+  table: table22,
+  time: time22,
+  timeEnd: timeEnd22,
+  timeLog: timeLog22,
+  timeStamp: timeStamp22,
+  trace: trace22,
+  warn: warn22
+} = workerdConsole2;
+Object.assign(workerdConsole2, {
+  Console: Console2,
+  _ignoreErrors: _ignoreErrors2,
+  _stderr: _stderr2,
+  _stderrErrorHandler: _stderrErrorHandler2,
+  _stdout: _stdout2,
+  _stdoutErrorHandler: _stdoutErrorHandler2,
+  _times: _times2
+});
+var console_default2 = workerdConsole2;
+globalThis.console = console_default2;
+var hrtime4 = /* @__PURE__ */ Object.assign(/* @__PURE__ */ __name2(/* @__PURE__ */ __name(function hrtime22(startTime) {
+  const now = Date.now();
+  const seconds = Math.trunc(now / 1e3);
+  const nanos = now % 1e3 * 1e6;
+  if (startTime) {
+    let diffSeconds = seconds - startTime[0];
+    let diffNanos = nanos - startTime[0];
+    if (diffNanos < 0) {
+      diffSeconds = diffSeconds - 1;
+      diffNanos = 1e9 + diffNanos;
+    }
+    return [diffSeconds, diffNanos];
+  }
+  return [seconds, nanos];
+}, "hrtime2"), "hrtime"), { bigint: /* @__PURE__ */ __name2(/* @__PURE__ */ __name(function bigint2() {
+  return BigInt(Date.now() * 1e6);
+}, "bigint"), "bigint") });
+var ReadStream2 = /* @__PURE__ */ __name(class extends Socket3 {
+  fd;
+  constructor(fd) {
+    super();
+    this.fd = fd;
+  }
+  isRaw = false;
+  setRawMode(mode) {
+    this.isRaw = mode;
+    return this;
+  }
+  isTTY = false;
+}, "ReadStream");
+__name2(ReadStream2, "ReadStream");
+var WriteStream2 = /* @__PURE__ */ __name(class extends Socket22 {
+  fd;
+  constructor(fd) {
+    super();
+    this.fd = fd;
+  }
+  clearLine(dir32, callback) {
+    callback && callback();
+    return false;
+  }
+  clearScreenDown(callback) {
+    callback && callback();
+    return false;
+  }
+  cursorTo(x, y, callback) {
+    callback && typeof callback === "function" && callback();
+    return false;
+  }
+  moveCursor(dx, dy, callback) {
+    callback && callback();
+    return false;
+  }
+  getColorDepth(env22) {
+    return 1;
+  }
+  hasColors(count32, env22) {
+    return false;
+  }
+  getWindowSize() {
+    return [this.columns, this.rows];
+  }
+  columns = 80;
+  rows = 24;
+  isTTY = false;
+}, "WriteStream");
+__name2(WriteStream2, "WriteStream");
+var Process2 = /* @__PURE__ */ __name(class extends EventEmitter2 {
+  env;
+  hrtime;
+  nextTick;
+  constructor(impl) {
+    super();
+    this.env = impl.env;
+    this.hrtime = impl.hrtime;
+    this.nextTick = impl.nextTick;
+    for (const prop of [...Object.getOwnPropertyNames(Process2.prototype), ...Object.getOwnPropertyNames(EventEmitter2.prototype)]) {
+      const value = this[prop];
+      if (typeof value === "function") {
+        this[prop] = value.bind(this);
+      }
+    }
+  }
+  emitWarning(warning, type, code) {
+    console.warn(`${code ? `[${code}] ` : ""}${type ? `${type}: ` : ""}${warning}`);
+  }
+  emit(...args) {
+    return super.emit(...args);
+  }
+  listeners(eventName) {
+    return super.listeners(eventName);
+  }
+  #stdin;
+  #stdout;
+  #stderr;
+  get stdin() {
+    return this.#stdin ??= new ReadStream2(0);
+  }
+  get stdout() {
+    return this.#stdout ??= new WriteStream2(1);
+  }
+  get stderr() {
+    return this.#stderr ??= new WriteStream2(2);
+  }
+  #cwd = "/";
+  chdir(cwd22) {
+    this.#cwd = cwd22;
+  }
+  cwd() {
+    return this.#cwd;
+  }
+  arch = "";
+  platform = "";
+  argv = [];
+  argv0 = "";
+  execArgv = [];
+  execPath = "";
+  title = "";
+  pid = 200;
+  ppid = 100;
+  get version() {
+    return "";
+  }
+  get versions() {
+    return {};
+  }
+  get allowedNodeEnvironmentFlags() {
+    return /* @__PURE__ */ new Set();
+  }
+  get sourceMapsEnabled() {
+    return false;
+  }
+  get debugPort() {
+    return 0;
+  }
+  get throwDeprecation() {
+    return false;
+  }
+  get traceDeprecation() {
+    return false;
+  }
+  get features() {
+    return {};
+  }
+  get release() {
+    return {};
+  }
+  get connected() {
+    return false;
+  }
+  get config() {
+    return {};
+  }
+  get moduleLoadList() {
+    return [];
+  }
+  constrainedMemory() {
+    return 0;
+  }
+  availableMemory() {
+    return 0;
+  }
+  uptime() {
+    return 0;
+  }
+  resourceUsage() {
+    return {};
+  }
+  ref() {
+  }
+  unref() {
+  }
+  umask() {
+    throw createNotImplementedError2("process.umask");
+  }
+  getBuiltinModule() {
+    return void 0;
+  }
+  getActiveResourcesInfo() {
+    throw createNotImplementedError2("process.getActiveResourcesInfo");
+  }
+  exit() {
+    throw createNotImplementedError2("process.exit");
+  }
+  reallyExit() {
+    throw createNotImplementedError2("process.reallyExit");
+  }
+  kill() {
+    throw createNotImplementedError2("process.kill");
+  }
+  abort() {
+    throw createNotImplementedError2("process.abort");
+  }
+  dlopen() {
+    throw createNotImplementedError2("process.dlopen");
+  }
+  setSourceMapsEnabled() {
+    throw createNotImplementedError2("process.setSourceMapsEnabled");
+  }
+  loadEnvFile() {
+    throw createNotImplementedError2("process.loadEnvFile");
+  }
+  disconnect() {
+    throw createNotImplementedError2("process.disconnect");
+  }
+  cpuUsage() {
+    throw createNotImplementedError2("process.cpuUsage");
+  }
+  setUncaughtExceptionCaptureCallback() {
+    throw createNotImplementedError2("process.setUncaughtExceptionCaptureCallback");
+  }
+  hasUncaughtExceptionCaptureCallback() {
+    throw createNotImplementedError2("process.hasUncaughtExceptionCaptureCallback");
+  }
+  initgroups() {
+    throw createNotImplementedError2("process.initgroups");
+  }
+  openStdin() {
+    throw createNotImplementedError2("process.openStdin");
+  }
+  assert() {
+    throw createNotImplementedError2("process.assert");
+  }
+  binding() {
+    throw createNotImplementedError2("process.binding");
+  }
+  permission = { has: /* @__PURE__ */ notImplemented2("process.permission.has") };
+  report = {
+    directory: "",
+    filename: "",
+    signal: "SIGUSR2",
+    compact: false,
+    reportOnFatalError: false,
+    reportOnSignal: false,
+    reportOnUncaughtException: false,
+    getReport: /* @__PURE__ */ notImplemented2("process.report.getReport"),
+    writeReport: /* @__PURE__ */ notImplemented2("process.report.writeReport")
+  };
+  finalization = {
+    register: /* @__PURE__ */ notImplemented2("process.finalization.register"),
+    unregister: /* @__PURE__ */ notImplemented2("process.finalization.unregister"),
+    registerBeforeExit: /* @__PURE__ */ notImplemented2("process.finalization.registerBeforeExit")
+  };
+  memoryUsage = Object.assign(() => ({
+    arrayBuffers: 0,
+    rss: 0,
+    external: 0,
+    heapTotal: 0,
+    heapUsed: 0
+  }), { rss: () => 0 });
+  mainModule = void 0;
+  domain = void 0;
+  send = void 0;
+  exitCode = void 0;
+  channel = void 0;
+  getegid = void 0;
+  geteuid = void 0;
+  getgid = void 0;
+  getgroups = void 0;
+  getuid = void 0;
+  setegid = void 0;
+  seteuid = void 0;
+  setgid = void 0;
+  setgroups = void 0;
+  setuid = void 0;
+  _events = void 0;
+  _eventsCount = void 0;
+  _exiting = void 0;
+  _maxListeners = void 0;
+  _debugEnd = void 0;
+  _debugProcess = void 0;
+  _fatalException = void 0;
+  _getActiveHandles = void 0;
+  _getActiveRequests = void 0;
+  _kill = void 0;
+  _preload_modules = void 0;
+  _rawDebug = void 0;
+  _startProfilerIdleNotifier = void 0;
+  _stopProfilerIdleNotifier = void 0;
+  _tickCallback = void 0;
+  _disconnect = void 0;
+  _handleQueue = void 0;
+  _pendingMessage = void 0;
+  _channel = void 0;
+  _send = void 0;
+  _linkedBinding = void 0;
+}, "Process");
+__name2(Process2, "Process");
+var globalProcess2 = globalThis["process"];
+var getBuiltinModule2 = globalProcess2.getBuiltinModule;
+var { exit: exit2, platform: platform2, nextTick: nextTick2 } = getBuiltinModule2(
+  "node:process"
+);
+var unenvProcess2 = new Process2({
+  env: globalProcess2.env,
+  hrtime: hrtime4,
+  nextTick: nextTick2
+});
+var {
+  abort: abort2,
+  addListener: addListener2,
+  allowedNodeEnvironmentFlags: allowedNodeEnvironmentFlags2,
+  hasUncaughtExceptionCaptureCallback: hasUncaughtExceptionCaptureCallback2,
+  setUncaughtExceptionCaptureCallback: setUncaughtExceptionCaptureCallback2,
+  loadEnvFile: loadEnvFile2,
+  sourceMapsEnabled: sourceMapsEnabled2,
+  arch: arch2,
+  argv: argv2,
+  argv0: argv02,
+  chdir: chdir2,
+  config: config2,
+  connected: connected2,
+  constrainedMemory: constrainedMemory2,
+  availableMemory: availableMemory2,
+  cpuUsage: cpuUsage2,
+  cwd: cwd2,
+  debugPort: debugPort2,
+  dlopen: dlopen2,
+  disconnect: disconnect2,
+  emit: emit2,
+  emitWarning: emitWarning2,
+  env: env2,
+  eventNames: eventNames2,
+  execArgv: execArgv2,
+  execPath: execPath2,
+  finalization: finalization2,
+  features: features2,
+  getActiveResourcesInfo: getActiveResourcesInfo2,
+  getMaxListeners: getMaxListeners2,
+  hrtime: hrtime32,
+  kill: kill2,
+  listeners: listeners2,
+  listenerCount: listenerCount2,
+  memoryUsage: memoryUsage2,
+  on: on2,
+  off: off2,
+  once: once2,
+  pid: pid2,
+  ppid: ppid2,
+  prependListener: prependListener2,
+  prependOnceListener: prependOnceListener2,
+  rawListeners: rawListeners2,
+  release: release2,
+  removeAllListeners: removeAllListeners2,
+  removeListener: removeListener2,
+  report: report2,
+  resourceUsage: resourceUsage2,
+  setMaxListeners: setMaxListeners2,
+  setSourceMapsEnabled: setSourceMapsEnabled2,
+  stderr: stderr2,
+  stdin: stdin2,
+  stdout: stdout2,
+  title: title2,
+  throwDeprecation: throwDeprecation2,
+  traceDeprecation: traceDeprecation2,
+  umask: umask2,
+  uptime: uptime2,
+  version: version2,
+  versions: versions2,
+  domain: domain2,
+  initgroups: initgroups2,
+  moduleLoadList: moduleLoadList2,
+  reallyExit: reallyExit2,
+  openStdin: openStdin2,
+  assert: assert22,
+  binding: binding2,
+  send: send2,
+  exitCode: exitCode2,
+  channel: channel2,
+  getegid: getegid2,
+  geteuid: geteuid2,
+  getgid: getgid2,
+  getgroups: getgroups2,
+  getuid: getuid2,
+  setegid: setegid2,
+  seteuid: seteuid2,
+  setgid: setgid2,
+  setgroups: setgroups2,
+  setuid: setuid2,
+  permission: permission2,
+  mainModule: mainModule2,
+  _events: _events2,
+  _eventsCount: _eventsCount2,
+  _exiting: _exiting2,
+  _maxListeners: _maxListeners2,
+  _debugEnd: _debugEnd2,
+  _debugProcess: _debugProcess2,
+  _fatalException: _fatalException2,
+  _getActiveHandles: _getActiveHandles2,
+  _getActiveRequests: _getActiveRequests2,
+  _kill: _kill2,
+  _preload_modules: _preload_modules2,
+  _rawDebug: _rawDebug2,
+  _startProfilerIdleNotifier: _startProfilerIdleNotifier2,
+  _stopProfilerIdleNotifier: _stopProfilerIdleNotifier2,
+  _tickCallback: _tickCallback2,
+  _disconnect: _disconnect2,
+  _handleQueue: _handleQueue2,
+  _pendingMessage: _pendingMessage2,
+  _channel: _channel2,
+  _send: _send2,
+  _linkedBinding: _linkedBinding2
+} = unenvProcess2;
+var _process2 = {
+  abort: abort2,
+  addListener: addListener2,
+  allowedNodeEnvironmentFlags: allowedNodeEnvironmentFlags2,
+  hasUncaughtExceptionCaptureCallback: hasUncaughtExceptionCaptureCallback2,
+  setUncaughtExceptionCaptureCallback: setUncaughtExceptionCaptureCallback2,
+  loadEnvFile: loadEnvFile2,
+  sourceMapsEnabled: sourceMapsEnabled2,
+  arch: arch2,
+  argv: argv2,
+  argv0: argv02,
+  chdir: chdir2,
+  config: config2,
+  connected: connected2,
+  constrainedMemory: constrainedMemory2,
+  availableMemory: availableMemory2,
+  cpuUsage: cpuUsage2,
+  cwd: cwd2,
+  debugPort: debugPort2,
+  dlopen: dlopen2,
+  disconnect: disconnect2,
+  emit: emit2,
+  emitWarning: emitWarning2,
+  env: env2,
+  eventNames: eventNames2,
+  execArgv: execArgv2,
+  execPath: execPath2,
+  exit: exit2,
+  finalization: finalization2,
+  features: features2,
+  getBuiltinModule: getBuiltinModule2,
+  getActiveResourcesInfo: getActiveResourcesInfo2,
+  getMaxListeners: getMaxListeners2,
+  hrtime: hrtime32,
+  kill: kill2,
+  listeners: listeners2,
+  listenerCount: listenerCount2,
+  memoryUsage: memoryUsage2,
+  nextTick: nextTick2,
+  on: on2,
+  off: off2,
+  once: once2,
+  pid: pid2,
+  platform: platform2,
+  ppid: ppid2,
+  prependListener: prependListener2,
+  prependOnceListener: prependOnceListener2,
+  rawListeners: rawListeners2,
+  release: release2,
+  removeAllListeners: removeAllListeners2,
+  removeListener: removeListener2,
+  report: report2,
+  resourceUsage: resourceUsage2,
+  setMaxListeners: setMaxListeners2,
+  setSourceMapsEnabled: setSourceMapsEnabled2,
+  stderr: stderr2,
+  stdin: stdin2,
+  stdout: stdout2,
+  title: title2,
+  throwDeprecation: throwDeprecation2,
+  traceDeprecation: traceDeprecation2,
+  umask: umask2,
+  uptime: uptime2,
+  version: version2,
+  versions: versions2,
+  // @ts-expect-error old API
+  domain: domain2,
+  initgroups: initgroups2,
+  moduleLoadList: moduleLoadList2,
+  reallyExit: reallyExit2,
+  openStdin: openStdin2,
+  assert: assert22,
+  binding: binding2,
+  send: send2,
+  exitCode: exitCode2,
+  channel: channel2,
+  getegid: getegid2,
+  geteuid: geteuid2,
+  getgid: getgid2,
+  getgroups: getgroups2,
+  getuid: getuid2,
+  setegid: setegid2,
+  seteuid: seteuid2,
+  setgid: setgid2,
+  setgroups: setgroups2,
+  setuid: setuid2,
+  permission: permission2,
+  mainModule: mainModule2,
+  _events: _events2,
+  _eventsCount: _eventsCount2,
+  _exiting: _exiting2,
+  _maxListeners: _maxListeners2,
+  _debugEnd: _debugEnd2,
+  _debugProcess: _debugProcess2,
+  _fatalException: _fatalException2,
+  _getActiveHandles: _getActiveHandles2,
+  _getActiveRequests: _getActiveRequests2,
+  _kill: _kill2,
+  _preload_modules: _preload_modules2,
+  _rawDebug: _rawDebug2,
+  _startProfilerIdleNotifier: _startProfilerIdleNotifier2,
+  _stopProfilerIdleNotifier: _stopProfilerIdleNotifier2,
+  _tickCallback: _tickCallback2,
+  _disconnect: _disconnect2,
+  _handleQueue: _handleQueue2,
+  _pendingMessage: _pendingMessage2,
+  _channel: _channel2,
+  _send: _send2,
+  _linkedBinding: _linkedBinding2
+};
+var process_default2 = _process2;
+globalThis.process = process_default2;
+var compose = /* @__PURE__ */ __name2((middleware, onError, onNotFound) => {
+  return (context22, next) => {
     let index = -1;
     return dispatch(0);
     async function dispatch(i) {
@@ -906,41 +1770,38 @@ var compose = /* @__PURE__ */ __name((middleware, onError, onNotFound) => {
       let handler;
       if (middleware[i]) {
         handler = middleware[i][0][0];
-        context2.req.routeIndex = i;
+        context22.req.routeIndex = i;
       } else {
         handler = i === middleware.length && next || void 0;
       }
       if (handler) {
         try {
-          res = await handler(context2, () => dispatch(i + 1));
+          res = await handler(context22, () => dispatch(i + 1));
         } catch (err) {
           if (err instanceof Error && onError) {
-            context2.error = err;
-            res = await onError(err, context2);
+            context22.error = err;
+            res = await onError(err, context22);
             isError = true;
           } else {
             throw err;
           }
         }
       } else {
-        if (context2.finalized === false && onNotFound) {
-          res = await onNotFound(context2);
+        if (context22.finalized === false && onNotFound) {
+          res = await onNotFound(context22);
         }
       }
-      if (res && (context2.finalized === false || isError)) {
-        context2.res = res;
+      if (res && (context22.finalized === false || isError)) {
+        context22.res = res;
       }
-      return context2;
+      return context22;
     }
     __name(dispatch, "dispatch");
+    __name2(dispatch, "dispatch");
   };
 }, "compose");
-
-// ../node_modules/hono/dist/request/constants.js
 var GET_MATCH_RESULT = /* @__PURE__ */ Symbol();
-
-// ../node_modules/hono/dist/utils/body.js
-var parseBody = /* @__PURE__ */ __name(async (request, options = /* @__PURE__ */ Object.create(null)) => {
+var parseBody = /* @__PURE__ */ __name2(async (request, options = /* @__PURE__ */ Object.create(null)) => {
   const { all = false, dot = false } = options;
   const headers = request instanceof HonoRequest ? request.raw.headers : request.headers;
   const contentType = headers.get("Content-Type");
@@ -957,6 +1818,7 @@ async function parseFormData(request, options) {
   return {};
 }
 __name(parseFormData, "parseFormData");
+__name2(parseFormData, "parseFormData");
 function convertFormDataToBodyData(formData, options) {
   const form = /* @__PURE__ */ Object.create(null);
   formData.forEach((value, key) => {
@@ -979,7 +1841,8 @@ function convertFormDataToBodyData(formData, options) {
   return form;
 }
 __name(convertFormDataToBodyData, "convertFormDataToBodyData");
-var handleParsingAllValues = /* @__PURE__ */ __name((form, key, value) => {
+__name2(convertFormDataToBodyData, "convertFormDataToBodyData");
+var handleParsingAllValues = /* @__PURE__ */ __name2((form, key, value) => {
   if (form[key] !== void 0) {
     if (Array.isArray(form[key])) {
       ;
@@ -995,7 +1858,7 @@ var handleParsingAllValues = /* @__PURE__ */ __name((form, key, value) => {
     }
   }
 }, "handleParsingAllValues");
-var handleParsingNestedValues = /* @__PURE__ */ __name((form, key, value) => {
+var handleParsingNestedValues = /* @__PURE__ */ __name2((form, key, value) => {
   if (/(?:^|\.)__proto__\./.test(key)) {
     return;
   }
@@ -1012,21 +1875,19 @@ var handleParsingNestedValues = /* @__PURE__ */ __name((form, key, value) => {
     }
   });
 }, "handleParsingNestedValues");
-
-// ../node_modules/hono/dist/utils/url.js
-var splitPath = /* @__PURE__ */ __name((path) => {
+var splitPath = /* @__PURE__ */ __name2((path) => {
   const paths = path.split("/");
   if (paths[0] === "") {
     paths.shift();
   }
   return paths;
 }, "splitPath");
-var splitRoutingPath = /* @__PURE__ */ __name((routePath) => {
+var splitRoutingPath = /* @__PURE__ */ __name2((routePath) => {
   const { groups, path } = extractGroupsFromPath(routePath);
   const paths = splitPath(path);
   return replaceGroupMarks(paths, groups);
 }, "splitRoutingPath");
-var extractGroupsFromPath = /* @__PURE__ */ __name((path) => {
+var extractGroupsFromPath = /* @__PURE__ */ __name2((path) => {
   const groups = [];
   path = path.replace(/\{[^}]+\}/g, (match3, index) => {
     const mark = `@${index}`;
@@ -1035,7 +1896,7 @@ var extractGroupsFromPath = /* @__PURE__ */ __name((path) => {
   });
   return { groups, path };
 }, "extractGroupsFromPath");
-var replaceGroupMarks = /* @__PURE__ */ __name((paths, groups) => {
+var replaceGroupMarks = /* @__PURE__ */ __name2((paths, groups) => {
   for (let i = groups.length - 1; i >= 0; i--) {
     const [mark] = groups[i];
     for (let j = paths.length - 1; j >= 0; j--) {
@@ -1048,7 +1909,7 @@ var replaceGroupMarks = /* @__PURE__ */ __name((paths, groups) => {
   return paths;
 }, "replaceGroupMarks");
 var patternCache = {};
-var getPattern = /* @__PURE__ */ __name((label, next) => {
+var getPattern = /* @__PURE__ */ __name2((label, next) => {
   if (label === "*") {
     return "*";
   }
@@ -1066,7 +1927,7 @@ var getPattern = /* @__PURE__ */ __name((label, next) => {
   }
   return null;
 }, "getPattern");
-var tryDecode = /* @__PURE__ */ __name((str, decoder) => {
+var tryDecode = /* @__PURE__ */ __name2((str, decoder) => {
   try {
     return decoder(str);
   } catch {
@@ -1079,8 +1940,8 @@ var tryDecode = /* @__PURE__ */ __name((str, decoder) => {
     });
   }
 }, "tryDecode");
-var tryDecodeURI = /* @__PURE__ */ __name((str) => tryDecode(str, decodeURI), "tryDecodeURI");
-var getPath = /* @__PURE__ */ __name((request) => {
+var tryDecodeURI = /* @__PURE__ */ __name2((str) => tryDecode(str, decodeURI), "tryDecodeURI");
+var getPath = /* @__PURE__ */ __name2((request) => {
   const url = request.url;
   const start = url.indexOf("/", url.indexOf(":") + 4);
   let i = start;
@@ -1098,17 +1959,17 @@ var getPath = /* @__PURE__ */ __name((request) => {
   }
   return url.slice(start, i);
 }, "getPath");
-var getPathNoStrict = /* @__PURE__ */ __name((request) => {
+var getPathNoStrict = /* @__PURE__ */ __name2((request) => {
   const result = getPath(request);
   return result.length > 1 && result.at(-1) === "/" ? result.slice(0, -1) : result;
 }, "getPathNoStrict");
-var mergePath = /* @__PURE__ */ __name((base, sub, ...rest) => {
+var mergePath = /* @__PURE__ */ __name2((base, sub, ...rest) => {
   if (rest.length) {
     sub = mergePath(sub, ...rest);
   }
   return `${base?.[0] === "/" ? "" : "/"}${base}${sub === "/" ? "" : `${base?.at(-1) === "/" ? "" : "/"}${sub?.[0] === "/" ? sub.slice(1) : sub}`}`;
 }, "mergePath");
-var checkOptionalParameter = /* @__PURE__ */ __name((path) => {
+var checkOptionalParameter = /* @__PURE__ */ __name2((path) => {
   if (path.charCodeAt(path.length - 1) !== 63 || !path.includes(":")) {
     return null;
   }
@@ -1135,7 +1996,7 @@ var checkOptionalParameter = /* @__PURE__ */ __name((path) => {
   });
   return results.filter((v, i, a) => a.indexOf(v) === i);
 }, "checkOptionalParameter");
-var _decodeURI = /* @__PURE__ */ __name((value) => {
+var _decodeURI = /* @__PURE__ */ __name2((value) => {
   if (!/[%+]/.test(value)) {
     return value;
   }
@@ -1144,7 +2005,7 @@ var _decodeURI = /* @__PURE__ */ __name((value) => {
   }
   return value.indexOf("%") !== -1 ? tryDecode(value, decodeURIComponent_) : value;
 }, "_decodeURI");
-var _getQueryParam = /* @__PURE__ */ __name((url, key, multiple) => {
+var _getQueryParam = /* @__PURE__ */ __name2((url, key, multiple) => {
   let encoded;
   if (!multiple && key && !/[%+]/.test(key)) {
     let keyIndex2 = url.indexOf("?", 8);
@@ -1212,14 +2073,12 @@ var _getQueryParam = /* @__PURE__ */ __name((url, key, multiple) => {
   return key ? results[key] : results;
 }, "_getQueryParam");
 var getQueryParam = _getQueryParam;
-var getQueryParams = /* @__PURE__ */ __name((url, key) => {
+var getQueryParams = /* @__PURE__ */ __name2((url, key) => {
   return _getQueryParam(url, key, true);
 }, "getQueryParams");
 var decodeURIComponent_ = decodeURIComponent;
-
-// ../node_modules/hono/dist/request.js
-var tryDecodeURIComponent = /* @__PURE__ */ __name((str) => tryDecode(str, decodeURIComponent_), "tryDecodeURIComponent");
-var HonoRequest = /* @__PURE__ */ __name(class {
+var tryDecodeURIComponent = /* @__PURE__ */ __name2((str) => tryDecode(str, decodeURIComponent_), "tryDecodeURIComponent");
+var HonoRequest = /* @__PURE__ */ __name2(class {
   /**
    * `.raw` can get the raw Request object.
    *
@@ -1484,20 +2343,18 @@ var HonoRequest = /* @__PURE__ */ __name(class {
     return this.#matchResult[0].map(([[, route]]) => route)[this.routeIndex].path;
   }
 }, "HonoRequest");
-
-// ../node_modules/hono/dist/utils/html.js
 var HtmlEscapedCallbackPhase = {
   Stringify: 1,
   BeforeStream: 2,
   Stream: 3
 };
-var raw = /* @__PURE__ */ __name((value, callbacks) => {
+var raw = /* @__PURE__ */ __name2((value, callbacks) => {
   const escapedString = new String(value);
   escapedString.isEscaped = true;
   escapedString.callbacks = callbacks;
   return escapedString;
 }, "raw");
-var resolveCallback = /* @__PURE__ */ __name(async (str, phase, preserveCallbacks, context2, buffer) => {
+var resolveCallback = /* @__PURE__ */ __name2(async (str, phase, preserveCallbacks, context22, buffer) => {
   if (typeof str === "object" && !(str instanceof String)) {
     if (!(str instanceof Promise)) {
       str = str.toString();
@@ -1515,9 +2372,9 @@ var resolveCallback = /* @__PURE__ */ __name(async (str, phase, preserveCallback
   } else {
     buffer = [str];
   }
-  const resStr = Promise.all(callbacks.map((c) => c({ phase, buffer, context: context2 }))).then(
+  const resStr = Promise.all(callbacks.map((c) => c({ phase, buffer, context: context22 }))).then(
     (res) => Promise.all(
-      res.filter(Boolean).map((str2) => resolveCallback(str2, phase, false, context2, buffer))
+      res.filter(Boolean).map((str2) => resolveCallback(str2, phase, false, context22, buffer))
     ).then(() => buffer[0])
   );
   if (preserveCallbacks) {
@@ -1526,17 +2383,15 @@ var resolveCallback = /* @__PURE__ */ __name(async (str, phase, preserveCallback
     return resStr;
   }
 }, "resolveCallback");
-
-// ../node_modules/hono/dist/context.js
 var TEXT_PLAIN = "text/plain; charset=UTF-8";
-var setDefaultContentType = /* @__PURE__ */ __name((contentType, headers) => {
+var setDefaultContentType = /* @__PURE__ */ __name2((contentType, headers) => {
   return {
     "Content-Type": contentType,
     ...headers
   };
 }, "setDefaultContentType");
-var createResponseInstance = /* @__PURE__ */ __name((body, init) => new Response(body, init), "createResponseInstance");
-var Context = /* @__PURE__ */ __name(class {
+var createResponseInstance = /* @__PURE__ */ __name2((body, init) => new Response(body, init), "createResponseInstance");
+var Context = /* @__PURE__ */ __name2(class {
   #rawRequest;
   #req;
   /**
@@ -1888,7 +2743,7 @@ var Context = /* @__PURE__ */ __name(class {
     );
   };
   html = (html, arg, headers) => {
-    const res = /* @__PURE__ */ __name((html2) => this.#newResponse(html2, arg, setDefaultContentType("text/html; charset=UTF-8", headers)), "res");
+    const res = /* @__PURE__ */ __name2((html2) => this.#newResponse(html2, arg, setDefaultContentType("text/html; charset=UTF-8", headers)), "res");
     return typeof html === "object" ? resolveCallback(html, HtmlEscapedCallbackPhase.Stringify, false, {}).then(res) : res(html);
   };
   /**
@@ -1933,23 +2788,17 @@ var Context = /* @__PURE__ */ __name(class {
     return this.#notFoundHandler(this);
   };
 }, "Context");
-
-// ../node_modules/hono/dist/router.js
 var METHOD_NAME_ALL = "ALL";
 var METHOD_NAME_ALL_LOWERCASE = "all";
 var METHODS = ["get", "post", "put", "delete", "options", "patch"];
 var MESSAGE_MATCHER_IS_ALREADY_BUILT = "Can not add a route since the matcher is already built.";
-var UnsupportedPathError = /* @__PURE__ */ __name(class extends Error {
+var UnsupportedPathError = /* @__PURE__ */ __name2(class extends Error {
 }, "UnsupportedPathError");
-
-// ../node_modules/hono/dist/utils/constants.js
 var COMPOSED_HANDLER = "__COMPOSED_HANDLER";
-
-// ../node_modules/hono/dist/hono-base.js
-var notFoundHandler = /* @__PURE__ */ __name((c) => {
+var notFoundHandler = /* @__PURE__ */ __name2((c) => {
   return c.text("404 Not Found", 404);
 }, "notFoundHandler");
-var errorHandler = /* @__PURE__ */ __name((err, c) => {
+var errorHandler = /* @__PURE__ */ __name2((err, c) => {
   if ("getResponse" in err) {
     const res = err.getResponse();
     return c.newResponse(res.body, res);
@@ -1957,7 +2806,7 @@ var errorHandler = /* @__PURE__ */ __name((err, c) => {
   console.error(err);
   return c.text("Internal Server Error", 500);
 }, "errorHandler");
-var Hono = /* @__PURE__ */ __name(class _Hono {
+var Hono = /* @__PURE__ */ __name2(/* @__PURE__ */ __name(class _Hono {
   get;
   post;
   put;
@@ -2057,7 +2906,7 @@ var Hono = /* @__PURE__ */ __name(class _Hono {
       if (app2.errorHandler === errorHandler) {
         handler = r.handler;
       } else {
-        handler = /* @__PURE__ */ __name(async (c, next) => (await compose([], app2.errorHandler)(c, () => r.handler(c, next))).res, "handler");
+        handler = /* @__PURE__ */ __name2(async (c, next) => (await compose([], app2.errorHandler)(c, () => r.handler(c, next))).res, "handler");
         handler[COMPOSED_HANDLER] = r.handler;
       }
       subApp.#addRoute(r.method, r.path, handler);
@@ -2162,7 +3011,7 @@ var Hono = /* @__PURE__ */ __name(class _Hono {
       } else {
         optionHandler = options.optionHandler;
         if (options.replaceRequest === false) {
-          replaceRequest = /* @__PURE__ */ __name((request) => request, "replaceRequest");
+          replaceRequest = /* @__PURE__ */ __name2((request) => request, "replaceRequest");
         } else {
           replaceRequest = options.replaceRequest;
         }
@@ -2188,7 +3037,7 @@ var Hono = /* @__PURE__ */ __name(class _Hono {
         return new Request(url, request);
       };
     })();
-    const handler = /* @__PURE__ */ __name(async (c, next) => {
+    const handler = /* @__PURE__ */ __name2(async (c, next) => {
       const res = await applicationHandler(replaceRequest(c.req.raw), ...getOptions(c));
       if (res) {
         return res;
@@ -2211,16 +3060,16 @@ var Hono = /* @__PURE__ */ __name(class _Hono {
     }
     throw err;
   }
-  #dispatch(request, executionCtx, env2, method) {
+  #dispatch(request, executionCtx, env22, method) {
     if (method === "HEAD") {
-      return (async () => new Response(null, await this.#dispatch(request, executionCtx, env2, "GET")))();
+      return (async () => new Response(null, await this.#dispatch(request, executionCtx, env22, "GET")))();
     }
-    const path = this.getPath(request, { env: env2 });
+    const path = this.getPath(request, { env: env22 });
     const matchResult = this.router.match(method, path);
     const c = new Context(request, {
       path,
       matchResult,
-      env: env2,
+      env: env22,
       executionCtx,
       notFoundHandler: this.#notFoundHandler
     });
@@ -2240,13 +3089,13 @@ var Hono = /* @__PURE__ */ __name(class _Hono {
     const composed = compose(matchResult[0], this.errorHandler, this.#notFoundHandler);
     return (async () => {
       try {
-        const context2 = await composed(c);
-        if (!context2.finalized) {
+        const context22 = await composed(c);
+        if (!context22.finalized) {
           throw new Error(
             "Context is not finalized. Did you forget to return a Response object or `await next()`?"
           );
         }
-        return context2.res;
+        return context22.res;
       } catch (err) {
         return this.#handleError(err, c);
       }
@@ -2314,13 +3163,11 @@ var Hono = /* @__PURE__ */ __name(class _Hono {
       event.respondWith(this.#dispatch(event.request, event, void 0, event.request.method));
     });
   };
-}, "_Hono");
-
-// ../node_modules/hono/dist/router/reg-exp-router/matcher.js
+}, "_Hono"), "_Hono");
 var emptyParam = [];
 function match(method, path) {
   const matchers = this.buildAllMatchers();
-  const match22 = /* @__PURE__ */ __name((method2, path2) => {
+  const match22 = /* @__PURE__ */ __name2((method2, path2) => {
     const matcher = matchers[method2] || matchers[METHOD_NAME_ALL];
     const staticMatch = matcher[2][path2];
     if (staticMatch) {
@@ -2337,8 +3184,7 @@ function match(method, path) {
   return match22(method, path);
 }
 __name(match, "match");
-
-// ../node_modules/hono/dist/router/reg-exp-router/node.js
+__name2(match, "match");
 var LABEL_REG_EXP_STR = "[^/]+";
 var ONLY_WILDCARD_REG_EXP_STR = ".*";
 var TAIL_WILDCARD_REG_EXP_STR = "(?:|/.*)";
@@ -2364,11 +3210,12 @@ function compareKey(a, b) {
   return a.length === b.length ? a < b ? -1 : 1 : b.length - a.length;
 }
 __name(compareKey, "compareKey");
-var Node = /* @__PURE__ */ __name(class _Node {
+__name2(compareKey, "compareKey");
+var Node = /* @__PURE__ */ __name2(/* @__PURE__ */ __name(class _Node {
   #index;
   #varIndex;
   #children = /* @__PURE__ */ Object.create(null);
-  insert(tokens, index, paramMap, context2, pathErrorCheckOnly) {
+  insert(tokens, index, paramMap, context22, pathErrorCheckOnly) {
     if (tokens.length === 0) {
       if (this.#index !== void 0) {
         throw PATH_ERROR;
@@ -2406,7 +3253,7 @@ var Node = /* @__PURE__ */ __name(class _Node {
         }
         node = this.#children[regexpStr] = new _Node();
         if (name !== "") {
-          node.#varIndex = context2.varIndex++;
+          node.#varIndex = context22.varIndex++;
         }
       }
       if (!pathErrorCheckOnly && name !== "") {
@@ -2426,7 +3273,7 @@ var Node = /* @__PURE__ */ __name(class _Node {
         node = this.#children[token] = new _Node();
       }
     }
-    node.insert(restTokens, index, paramMap, context2, pathErrorCheckOnly);
+    node.insert(restTokens, index, paramMap, context22, pathErrorCheckOnly);
   }
   buildRegExpStr() {
     const childKeys = Object.keys(this.#children).sort(compareKey);
@@ -2445,10 +3292,8 @@ var Node = /* @__PURE__ */ __name(class _Node {
     }
     return "(?:" + strList.join("|") + ")";
   }
-}, "_Node");
-
-// ../node_modules/hono/dist/router/reg-exp-router/trie.js
-var Trie = /* @__PURE__ */ __name(class {
+}, "_Node"), "_Node");
+var Trie = /* @__PURE__ */ __name2(class {
   #context = { varIndex: 0 };
   #root = new Node();
   insert(path, index, pathErrorCheckOnly) {
@@ -2502,8 +3347,6 @@ var Trie = /* @__PURE__ */ __name(class {
     return [new RegExp(`^${regexp}`), indexReplacementMap, paramReplacementMap];
   }
 }, "Trie");
-
-// ../node_modules/hono/dist/router/reg-exp-router/router.js
 var nullMatcher = [/^$/, [], /* @__PURE__ */ Object.create(null)];
 var wildcardRegExpCache = /* @__PURE__ */ Object.create(null);
 function buildWildcardRegExp(path) {
@@ -2515,10 +3358,12 @@ function buildWildcardRegExp(path) {
   );
 }
 __name(buildWildcardRegExp, "buildWildcardRegExp");
+__name2(buildWildcardRegExp, "buildWildcardRegExp");
 function clearWildcardRegExpCache() {
   wildcardRegExpCache = /* @__PURE__ */ Object.create(null);
 }
 __name(clearWildcardRegExpCache, "clearWildcardRegExpCache");
+__name2(clearWildcardRegExpCache, "clearWildcardRegExpCache");
 function buildMatcherFromPreprocessedRoutes(routes2) {
   const trie = new Trie();
   const handlerData = [];
@@ -2577,6 +3422,7 @@ function buildMatcherFromPreprocessedRoutes(routes2) {
   return [regexp, handlerMap, staticMap];
 }
 __name(buildMatcherFromPreprocessedRoutes, "buildMatcherFromPreprocessedRoutes");
+__name2(buildMatcherFromPreprocessedRoutes, "buildMatcherFromPreprocessedRoutes");
 function findMiddleware(middleware, path) {
   if (!middleware) {
     return void 0;
@@ -2589,7 +3435,8 @@ function findMiddleware(middleware, path) {
   return void 0;
 }
 __name(findMiddleware, "findMiddleware");
-var RegExpRouter = /* @__PURE__ */ __name(class {
+__name2(findMiddleware, "findMiddleware");
+var RegExpRouter = /* @__PURE__ */ __name2(class {
   name = "RegExpRouter";
   #middleware;
   #routes;
@@ -2685,9 +3532,7 @@ var RegExpRouter = /* @__PURE__ */ __name(class {
     }
   }
 }, "RegExpRouter");
-
-// ../node_modules/hono/dist/router/smart-router/router.js
-var SmartRouter = /* @__PURE__ */ __name(class {
+var SmartRouter = /* @__PURE__ */ __name2(class {
   name = "SmartRouter";
   #routers = [];
   #routes = [];
@@ -2740,16 +3585,14 @@ var SmartRouter = /* @__PURE__ */ __name(class {
     return this.#routers[0];
   }
 }, "SmartRouter");
-
-// ../node_modules/hono/dist/router/trie-router/node.js
 var emptyParams = /* @__PURE__ */ Object.create(null);
-var hasChildren = /* @__PURE__ */ __name((children) => {
+var hasChildren = /* @__PURE__ */ __name2((children) => {
   for (const _ in children) {
     return true;
   }
   return false;
 }, "hasChildren");
-var Node2 = /* @__PURE__ */ __name(class _Node2 {
+var Node2 = /* @__PURE__ */ __name2(/* @__PURE__ */ __name(class _Node2 {
   #methods;
   #children;
   #patterns;
@@ -2914,10 +3757,8 @@ var Node2 = /* @__PURE__ */ __name(class _Node2 {
     }
     return [handlerSets.map(({ handler, params }) => [handler, params])];
   }
-}, "_Node");
-
-// ../node_modules/hono/dist/router/trie-router/router.js
-var TrieRouter = /* @__PURE__ */ __name(class {
+}, "_Node2"), "_Node");
+var TrieRouter = /* @__PURE__ */ __name2(class {
   name = "TrieRouter";
   #node;
   constructor() {
@@ -2937,9 +3778,7 @@ var TrieRouter = /* @__PURE__ */ __name(class {
     return this.#node.search(method, path);
   }
 }, "TrieRouter");
-
-// ../node_modules/hono/dist/hono.js
-var Hono2 = /* @__PURE__ */ __name(class extends Hono {
+var Hono2 = /* @__PURE__ */ __name2(class extends Hono {
   /**
    * Creates an instance of the Hono class.
    *
@@ -2952,9 +3791,7 @@ var Hono2 = /* @__PURE__ */ __name(class extends Hono {
     });
   }
 }, "Hono");
-
-// ../node_modules/hono/dist/middleware/cors/index.js
-var cors = /* @__PURE__ */ __name((options) => {
+var cors = /* @__PURE__ */ __name2((options) => {
   const opts = {
     origin: "*",
     allowMethods: ["GET", "HEAD", "PUT", "POST", "DELETE", "PATCH"],
@@ -2987,11 +3824,12 @@ var cors = /* @__PURE__ */ __name((options) => {
       return () => [];
     }
   })(opts.allowMethods);
-  return /* @__PURE__ */ __name(async function cors2(c, next) {
+  return /* @__PURE__ */ __name2(/* @__PURE__ */ __name(async function cors2(c, next) {
     function set(key, value) {
       c.res.headers.set(key, value);
     }
     __name(set, "set");
+    __name2(set, "set");
     const allowOrigin = await findAllowOrigin(c.req.header("origin") || "", c);
     if (allowOrigin) {
       set("Access-Control-Allow-Origin", allowOrigin);
@@ -3036,11 +3874,9 @@ var cors = /* @__PURE__ */ __name((options) => {
     if (opts.origin !== "*" || opts.credentials) {
       c.header("Vary", "Origin", { append: true });
     }
-  }, "cors2");
+  }, "cors2"), "cors2");
 }, "cors");
-
-// ../node_modules/hono/dist/adapter/cloudflare-pages/handler.js
-var handle = /* @__PURE__ */ __name((app2) => (eventContext) => {
+var handle = /* @__PURE__ */ __name2((app2) => (eventContext) => {
   return app2.fetch(
     eventContext.request,
     { ...eventContext.env, eventContext },
@@ -3051,8 +3887,6 @@ var handle = /* @__PURE__ */ __name((app2) => (eventContext) => {
     }
   );
 }, "handle");
-
-// lib/auth.js
 var PBKDF2_ITERATIONS = 1e5;
 var PBKDF2_HASH = "SHA-256";
 var PBKDF2_KEY_LEN = 32;
@@ -3076,6 +3910,7 @@ async function hashPassword(password) {
   return `pbkdf2$${PBKDF2_ITERATIONS}$${saltHex}$${hashHex}`;
 }
 __name(hashPassword, "hashPassword");
+__name2(hashPassword, "hashPassword");
 async function verifyPassword(password, stored) {
   if (!stored || !stored.startsWith("pbkdf2$"))
     return false;
@@ -3101,6 +3936,7 @@ async function verifyPassword(password, stored) {
   return timingSafeEqual(actualHex, expectedHex);
 }
 __name(verifyPassword, "verifyPassword");
+__name2(verifyPassword, "verifyPassword");
 function timingSafeEqual(a, b) {
   if (a.length !== b.length)
     return false;
@@ -3111,10 +3947,12 @@ function timingSafeEqual(a, b) {
   return diff === 0;
 }
 __name(timingSafeEqual, "timingSafeEqual");
+__name2(timingSafeEqual, "timingSafeEqual");
 function bufToHex(buf) {
   return Array.from(buf).map((b) => b.toString(16).padStart(2, "0")).join("");
 }
 __name(bufToHex, "bufToHex");
+__name2(bufToHex, "bufToHex");
 function hexToBuf(hex) {
   const bytes = new Uint8Array(hex.length / 2);
   for (let i = 0; i < bytes.length; i++) {
@@ -3123,17 +3961,20 @@ function hexToBuf(hex) {
   return bytes;
 }
 __name(hexToBuf, "hexToBuf");
+__name2(hexToBuf, "hexToBuf");
 var JWT_EXPIRES_SECONDS = 7 * 24 * 60 * 60;
 function b64url(buf) {
   return btoa(String.fromCharCode(...new Uint8Array(buf))).replace(/\+/g, "-").replace(/\//g, "_").replace(/=/g, "");
 }
 __name(b64url, "b64url");
+__name2(b64url, "b64url");
 function b64urlDecode(str) {
   const b64 = str.replace(/-/g, "+").replace(/_/g, "/");
   const bin = atob(b64);
   return Uint8Array.from(bin, (c) => c.charCodeAt(0));
 }
 __name(b64urlDecode, "b64urlDecode");
+__name2(b64urlDecode, "b64urlDecode");
 async function getJwtKey(secret) {
   const enc = new TextEncoder();
   return crypto.subtle.importKey(
@@ -3145,6 +3986,7 @@ async function getJwtKey(secret) {
   );
 }
 __name(getJwtKey, "getJwtKey");
+__name2(getJwtKey, "getJwtKey");
 async function generateToken(user, secret) {
   const header = b64url(new TextEncoder().encode(JSON.stringify({ alg: "HS256", typ: "JWT" })));
   const payload = b64url(new TextEncoder().encode(JSON.stringify({
@@ -3160,6 +4002,7 @@ async function generateToken(user, secret) {
   return `${data}.${b64url(sig)}`;
 }
 __name(generateToken, "generateToken");
+__name2(generateToken, "generateToken");
 async function verifyToken(token, secret) {
   const parts = token.split(".");
   if (parts.length !== 3)
@@ -3180,8 +4023,7 @@ async function verifyToken(token, secret) {
   return decoded;
 }
 __name(verifyToken, "verifyToken");
-
-// lib/ciValidator.js
+__name2(verifyToken, "verifyToken");
 var CI_PATTERNS = {
   Bolivia: /^\d{5,9}(-[A-Z0-9]{1,2})?$/i,
   Peru: /^\d{8}$/,
@@ -3217,12 +4059,12 @@ function validateCI(ci, country = "Bolivia") {
   return { valid: true };
 }
 __name(validateCI, "validateCI");
+__name2(validateCI, "validateCI");
 function normalizeCI(ci) {
   return ci.trim().toUpperCase().replace(/\s+/g, "");
 }
 __name(normalizeCI, "normalizeCI");
-
-// lib/riasecEngine.js
+__name2(normalizeCI, "normalizeCI");
 var CATEGORIES = ["R", "I", "A", "S", "E", "C"];
 var CATEGORY_LABELS = {
   R: "Realista",
@@ -3258,11 +4100,13 @@ function calculateScores(answers) {
   return scores;
 }
 __name(calculateScores, "calculateScores");
+__name2(calculateScores, "calculateScores");
 function generateProfileLabel(scores) {
   const sorted = CATEGORIES.map((c) => ({ cat: c, score: scores[c] })).sort((a, b) => b.score - a.score);
   return `${CATEGORY_LABELS[sorted[0].cat]}-${CATEGORY_LABELS[sorted[1].cat]}`;
 }
 __name(generateProfileLabel, "generateProfileLabel");
+__name2(generateProfileLabel, "generateProfileLabel");
 function cosineSimilarity(vecA, vecB) {
   let dot = 0, magA = 0, magB = 0;
   for (const key of CATEGORIES) {
@@ -3279,6 +4123,7 @@ function cosineSimilarity(vecA, vecB) {
   return dot / (magA * magB);
 }
 __name(cosineSimilarity, "cosineSimilarity");
+__name2(cosineSimilarity, "cosineSimilarity");
 function matchCareers(userScores, careerVectors) {
   const userVec = {
     R: userScores.R,
@@ -3303,8 +4148,7 @@ function matchCareers(userScores, careerVectors) {
   return results.sort((a, b) => b.similarity - a.similarity);
 }
 __name(matchCareers, "matchCareers");
-
-// api/[[route]].js
+__name2(matchCareers, "matchCareers");
 var app = new Hono2();
 app.use("*", cors({ origin: "*", allowMethods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], allowHeaders: ["Content-Type", "Authorization"] }));
 async function auth(c, next) {
@@ -3320,17 +4164,18 @@ async function auth(c, next) {
   }
 }
 __name(auth, "auth");
+__name2(auth, "auth");
 var db = {
-  get: async (env2, sql, ...p) => {
-    const rs = await env2.DB.prepare(sql).bind(...p.flat()).first();
+  get: async (env22, sql, ...p) => {
+    const rs = await env22.DB.prepare(sql).bind(...p.flat()).first();
     return rs || null;
   },
-  all: async (env2, sql, ...p) => {
-    const rs = await env2.DB.prepare(sql).bind(...p.flat()).all();
+  all: async (env22, sql, ...p) => {
+    const rs = await env22.DB.prepare(sql).bind(...p.flat()).all();
     return rs.results || [];
   },
-  run: async (env2, sql, ...p) => {
-    const rs = await env2.DB.prepare(sql).bind(...p.flat()).run();
+  run: async (env22, sql, ...p) => {
+    const rs = await env22.DB.prepare(sql).bind(...p.flat()).run();
     return { meta: { last_row_id: rs.meta?.last_row_id } };
   }
 };
@@ -3432,7 +4277,7 @@ app.get("/api/universities/:id", async (c) => {
 app.get("/api/careers", async (c) => {
   const { query, faculty, country, type, page = 1, limit = 20 } = c.req.query();
   const all = await db.all(c.env, `SELECT c.id,c.name,c.faculty,c.duration_years,c.degree_title,c.curriculum_summary,u.id as university_id,u.name as university_name,u.acronym as university_acronym,u.country,u.city,u.type as university_type,u.website FROM careers c JOIN universities u ON c.university_id=u.id ORDER BY c.name ASC`);
-  const norm = /* @__PURE__ */ __name((s) => s?.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase() || "", "norm");
+  const norm = /* @__PURE__ */ __name2((s) => s?.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase() || "", "norm");
   let filtered = all;
   if (query) {
     const q = norm(query);
@@ -3619,8 +4464,6 @@ app.get("/api/vocational/results/latest", auth, async (c) => {
   return c.json({ result: { ...result, scores: { R: result.r_score, I: result.i_score, A: result.a_score, S: result.s_score, E: result.e_score, C: result.c_score } }, topCareers, categoryLabels: CATEGORY_LABELS, categoryDescriptions: CATEGORY_DESCRIPTIONS });
 });
 var onRequest = handle(app);
-
-// ../.wrangler/tmp/pages-144eHK/functionsRoutes-0.47233690842625764.mjs
 var routes = [
   {
     routePath: "/api/:route*",
@@ -3630,8 +4473,6 @@ var routes = [
     modules: [onRequest]
   }
 ];
-
-// ../node_modules/path-to-regexp/dist.es2015/index.js
 function lexer(str) {
   var tokens = [];
   var i = 0;
@@ -3677,7 +4518,7 @@ function lexer(str) {
       continue;
     }
     if (char === "(") {
-      var count3 = 1;
+      var count32 = 1;
       var pattern = "";
       var j = i + 1;
       if (str[j] === "?") {
@@ -3689,20 +4530,20 @@ function lexer(str) {
           continue;
         }
         if (str[j] === ")") {
-          count3--;
-          if (count3 === 0) {
+          count32--;
+          if (count32 === 0) {
             j++;
             break;
           }
         } else if (str[j] === "(") {
-          count3++;
+          count32++;
           if (str[j + 1] !== "?") {
             throw new TypeError("Capturing groups are not allowed at ".concat(j));
           }
         }
         pattern += str[j++];
       }
-      if (count3)
+      if (count32)
         throw new TypeError("Unbalanced pattern at ".concat(i));
       if (!pattern)
         throw new TypeError("Missing pattern at ".concat(i));
@@ -3716,6 +4557,7 @@ function lexer(str) {
   return tokens;
 }
 __name(lexer, "lexer");
+__name2(lexer, "lexer");
 function parse(str, options) {
   if (options === void 0) {
     options = {};
@@ -3726,18 +4568,18 @@ function parse(str, options) {
   var key = 0;
   var i = 0;
   var path = "";
-  var tryConsume = /* @__PURE__ */ __name(function(type) {
+  var tryConsume = /* @__PURE__ */ __name2(function(type) {
     if (i < tokens.length && tokens[i].type === type)
       return tokens[i++].value;
   }, "tryConsume");
-  var mustConsume = /* @__PURE__ */ __name(function(type) {
+  var mustConsume = /* @__PURE__ */ __name2(function(type) {
     var value2 = tryConsume(type);
     if (value2 !== void 0)
       return value2;
     var _a2 = tokens[i], nextType = _a2.type, index = _a2.index;
     throw new TypeError("Unexpected ".concat(nextType, " at ").concat(index, ", expected ").concat(type));
   }, "mustConsume");
-  var consumeText = /* @__PURE__ */ __name(function() {
+  var consumeText = /* @__PURE__ */ __name2(function() {
     var result2 = "";
     var value2;
     while (value2 = tryConsume("CHAR") || tryConsume("ESCAPED_CHAR")) {
@@ -3745,7 +4587,7 @@ function parse(str, options) {
     }
     return result2;
   }, "consumeText");
-  var isSafe = /* @__PURE__ */ __name(function(value2) {
+  var isSafe = /* @__PURE__ */ __name2(function(value2) {
     for (var _i = 0, delimiter_1 = delimiter; _i < delimiter_1.length; _i++) {
       var char2 = delimiter_1[_i];
       if (value2.indexOf(char2) > -1)
@@ -3753,7 +4595,7 @@ function parse(str, options) {
     }
     return false;
   }, "isSafe");
-  var safePattern = /* @__PURE__ */ __name(function(prefix2) {
+  var safePattern = /* @__PURE__ */ __name2(function(prefix2) {
     var prev = result[result.length - 1];
     var prevText = prefix2 || (prev && typeof prev === "string" ? prev : "");
     if (prev && !prevText) {
@@ -3816,12 +4658,14 @@ function parse(str, options) {
   return result;
 }
 __name(parse, "parse");
+__name2(parse, "parse");
 function match2(str, options) {
   var keys = [];
   var re = pathToRegexp(str, keys, options);
   return regexpToFunction(re, keys, options);
 }
-__name(match2, "match");
+__name(match2, "match2");
+__name2(match2, "match");
 function regexpToFunction(re, keys, options) {
   if (options === void 0) {
     options = {};
@@ -3835,7 +4679,7 @@ function regexpToFunction(re, keys, options) {
       return false;
     var path = m[0], index = m.index;
     var params = /* @__PURE__ */ Object.create(null);
-    var _loop_1 = /* @__PURE__ */ __name(function(i2) {
+    var _loop_1 = /* @__PURE__ */ __name2(function(i2) {
       if (m[i2] === void 0)
         return "continue";
       var key = keys[i2 - 1];
@@ -3854,14 +4698,17 @@ function regexpToFunction(re, keys, options) {
   };
 }
 __name(regexpToFunction, "regexpToFunction");
+__name2(regexpToFunction, "regexpToFunction");
 function escapeString(str) {
   return str.replace(/([.+*?=^!:${}()[\]|/\\])/g, "\\$1");
 }
 __name(escapeString, "escapeString");
+__name2(escapeString, "escapeString");
 function flags(options) {
   return options && options.sensitive ? "" : "i";
 }
 __name(flags, "flags");
+__name2(flags, "flags");
 function regexpToRegexp(path, keys) {
   if (!keys)
     return path;
@@ -3882,6 +4729,7 @@ function regexpToRegexp(path, keys) {
   return path;
 }
 __name(regexpToRegexp, "regexpToRegexp");
+__name2(regexpToRegexp, "regexpToRegexp");
 function arrayToRegexp(paths, keys, options) {
   var parts = paths.map(function(path) {
     return pathToRegexp(path, keys, options).source;
@@ -3889,10 +4737,12 @@ function arrayToRegexp(paths, keys, options) {
   return new RegExp("(?:".concat(parts.join("|"), ")"), flags(options));
 }
 __name(arrayToRegexp, "arrayToRegexp");
+__name2(arrayToRegexp, "arrayToRegexp");
 function stringToRegexp(path, keys, options) {
   return tokensToRegexp(parse(path, options), keys, options);
 }
 __name(stringToRegexp, "stringToRegexp");
+__name2(stringToRegexp, "stringToRegexp");
 function tokensToRegexp(tokens, keys, options) {
   if (options === void 0) {
     options = {};
@@ -3948,6 +4798,7 @@ function tokensToRegexp(tokens, keys, options) {
   return new RegExp(route, flags(options));
 }
 __name(tokensToRegexp, "tokensToRegexp");
+__name2(tokensToRegexp, "tokensToRegexp");
 function pathToRegexp(path, keys, options) {
   if (path instanceof RegExp)
     return regexpToRegexp(path, keys);
@@ -3956,8 +4807,7 @@ function pathToRegexp(path, keys, options) {
   return stringToRegexp(path, keys, options);
 }
 __name(pathToRegexp, "pathToRegexp");
-
-// ../node_modules/wrangler/templates/pages-template-worker.ts
+__name2(pathToRegexp, "pathToRegexp");
 var escapeRegex = /[.+?^${}()|[\]\\]/g;
 function* executeRequest(request) {
   const requestPath = new URL(request.url).pathname;
@@ -4008,13 +4858,14 @@ function* executeRequest(request) {
   }
 }
 __name(executeRequest, "executeRequest");
+__name2(executeRequest, "executeRequest");
 var pages_template_worker_default = {
-  async fetch(originalRequest, env2, workerContext) {
+  async fetch(originalRequest, env22, workerContext) {
     let request = originalRequest;
     const handlerIterator = executeRequest(request);
     let data = {};
     let isFailOpen = false;
-    const next = /* @__PURE__ */ __name(async (input, init) => {
+    const next = /* @__PURE__ */ __name2(async (input, init) => {
       if (input !== void 0) {
         let url = input;
         if (typeof input === "string") {
@@ -4025,7 +4876,7 @@ var pages_template_worker_default = {
       const result = handlerIterator.next();
       if (result.done === false) {
         const { handler, params, path } = result.value;
-        const context2 = {
+        const context22 = {
           request: new Request(request.clone()),
           functionPath: path,
           next,
@@ -4039,19 +4890,19 @@ var pages_template_worker_default = {
             }
             data = value;
           },
-          env: env2,
+          env: env22,
           waitUntil: workerContext.waitUntil.bind(workerContext),
           passThroughOnException: () => {
             isFailOpen = true;
           }
         };
-        const response = await handler(context2);
+        const response = await handler(context22);
         if (!(response instanceof Response)) {
           throw new Error("Your Pages function should return a Response");
         }
         return cloneResponse(response);
       } else if ("ASSETS") {
-        const response = await env2["ASSETS"].fetch(request);
+        const response = await env22["ASSETS"].fetch(request);
         return cloneResponse(response);
       } else {
         const response = await fetch(request);
@@ -4060,27 +4911,25 @@ var pages_template_worker_default = {
     }, "next");
     try {
       return await next();
-    } catch (error3) {
+    } catch (error32) {
       if (isFailOpen) {
-        const response = await env2["ASSETS"].fetch(request);
+        const response = await env22["ASSETS"].fetch(request);
         return cloneResponse(response);
       }
-      throw error3;
+      throw error32;
     }
   }
 };
-var cloneResponse = /* @__PURE__ */ __name((response) => (
+var cloneResponse = /* @__PURE__ */ __name2((response) => (
   // https://fetch.spec.whatwg.org/#null-body-status
   new Response(
     [101, 204, 205, 304].includes(response.status) ? null : response.body,
     response
   )
 ), "cloneResponse");
-
-// ../node_modules/wrangler/templates/middleware/middleware-ensure-req-body-drained.ts
-var drainBody = /* @__PURE__ */ __name(async (request, env2, _ctx, middlewareCtx) => {
+var drainBody = /* @__PURE__ */ __name2(async (request, env22, _ctx, middlewareCtx) => {
   try {
-    return await middlewareCtx.next(request, env2);
+    return await middlewareCtx.next(request, env22);
   } finally {
     try {
       if (request.body !== null && !request.bodyUsed) {
@@ -4094,8 +4943,6 @@ var drainBody = /* @__PURE__ */ __name(async (request, env2, _ctx, middlewareCtx
   }
 }, "drainBody");
 var middleware_ensure_req_body_drained_default = drainBody;
-
-// ../node_modules/wrangler/templates/middleware/middleware-miniflare3-json-error.ts
 function reduceError(e) {
   return {
     name: e?.name,
@@ -4105,33 +4952,31 @@ function reduceError(e) {
   };
 }
 __name(reduceError, "reduceError");
-var jsonError = /* @__PURE__ */ __name(async (request, env2, _ctx, middlewareCtx) => {
+__name2(reduceError, "reduceError");
+var jsonError = /* @__PURE__ */ __name2(async (request, env22, _ctx, middlewareCtx) => {
   try {
-    return await middlewareCtx.next(request, env2);
+    return await middlewareCtx.next(request, env22);
   } catch (e) {
-    const error3 = reduceError(e);
-    return Response.json(error3, {
+    const error32 = reduceError(e);
+    return Response.json(error32, {
       status: 500,
       headers: { "MF-Experimental-Error-Stack": "true" }
     });
   }
 }, "jsonError");
 var middleware_miniflare3_json_error_default = jsonError;
-
-// ../.wrangler/tmp/bundle-pJiSxi/middleware-insertion-facade.js
 var __INTERNAL_WRANGLER_MIDDLEWARE__ = [
   middleware_ensure_req_body_drained_default,
   middleware_miniflare3_json_error_default
 ];
 var middleware_insertion_facade_default = pages_template_worker_default;
-
-// ../node_modules/wrangler/templates/middleware/common.ts
 var __facade_middleware__ = [];
 function __facade_register__(...args) {
   __facade_middleware__.push(...args.flat());
 }
 __name(__facade_register__, "__facade_register__");
-function __facade_invokeChain__(request, env2, ctx, dispatch, middlewareChain) {
+__name2(__facade_register__, "__facade_register__");
+function __facade_invokeChain__(request, env22, ctx, dispatch, middlewareChain) {
   const [head, ...tail] = middlewareChain;
   const middlewareCtx = {
     dispatch,
@@ -4139,19 +4984,19 @@ function __facade_invokeChain__(request, env2, ctx, dispatch, middlewareChain) {
       return __facade_invokeChain__(newRequest, newEnv, ctx, dispatch, tail);
     }
   };
-  return head(request, env2, ctx, middlewareCtx);
+  return head(request, env22, ctx, middlewareCtx);
 }
 __name(__facade_invokeChain__, "__facade_invokeChain__");
-function __facade_invoke__(request, env2, ctx, dispatch, finalMiddleware) {
-  return __facade_invokeChain__(request, env2, ctx, dispatch, [
+__name2(__facade_invokeChain__, "__facade_invokeChain__");
+function __facade_invoke__(request, env22, ctx, dispatch, finalMiddleware) {
+  return __facade_invokeChain__(request, env22, ctx, dispatch, [
     ...__facade_middleware__,
     finalMiddleware
   ]);
 }
 __name(__facade_invoke__, "__facade_invoke__");
-
-// ../.wrangler/tmp/bundle-pJiSxi/middleware-loader.entry.ts
-var __Facade_ScheduledController__ = class {
+__name2(__facade_invoke__, "__facade_invoke__");
+var __Facade_ScheduledController__ = /* @__PURE__ */ __name(class {
   constructor(scheduledTime, cron, noRetry) {
     this.scheduledTime = scheduledTime;
     this.cron = cron;
@@ -4164,8 +5009,8 @@ var __Facade_ScheduledController__ = class {
     }
     this.#noRetry();
   }
-};
-__name(__Facade_ScheduledController__, "__Facade_ScheduledController__");
+}, "__Facade_ScheduledController__");
+__name2(__Facade_ScheduledController__, "__Facade_ScheduledController__");
 function wrapExportedHandler(worker) {
   if (__INTERNAL_WRANGLER_MIDDLEWARE__ === void 0 || __INTERNAL_WRANGLER_MIDDLEWARE__.length === 0) {
     return worker;
@@ -4173,16 +5018,16 @@ function wrapExportedHandler(worker) {
   for (const middleware of __INTERNAL_WRANGLER_MIDDLEWARE__) {
     __facade_register__(middleware);
   }
-  const fetchDispatcher = /* @__PURE__ */ __name(function(request, env2, ctx) {
+  const fetchDispatcher = /* @__PURE__ */ __name2(function(request, env22, ctx) {
     if (worker.fetch === void 0) {
       throw new Error("Handler does not export a fetch() function.");
     }
-    return worker.fetch(request, env2, ctx);
+    return worker.fetch(request, env22, ctx);
   }, "fetchDispatcher");
   return {
     ...worker,
-    fetch(request, env2, ctx) {
-      const dispatcher = /* @__PURE__ */ __name(function(type, init) {
+    fetch(request, env22, ctx) {
+      const dispatcher = /* @__PURE__ */ __name2(function(type, init) {
         if (type === "scheduled" && worker.scheduled !== void 0) {
           const controller = new __Facade_ScheduledController__(
             Date.now(),
@@ -4190,14 +5035,15 @@ function wrapExportedHandler(worker) {
             () => {
             }
           );
-          return worker.scheduled(controller, env2, ctx);
+          return worker.scheduled(controller, env22, ctx);
         }
       }, "dispatcher");
-      return __facade_invoke__(request, env2, ctx, dispatcher, fetchDispatcher);
+      return __facade_invoke__(request, env22, ctx, dispatcher, fetchDispatcher);
     }
   };
 }
 __name(wrapExportedHandler, "wrapExportedHandler");
+__name2(wrapExportedHandler, "wrapExportedHandler");
 function wrapWorkerEntrypoint(klass) {
   if (__INTERNAL_WRANGLER_MIDDLEWARE__ === void 0 || __INTERNAL_WRANGLER_MIDDLEWARE__.length === 0) {
     return klass;
@@ -4206,8 +5052,8 @@ function wrapWorkerEntrypoint(klass) {
     __facade_register__(middleware);
   }
   return class extends klass {
-    #fetchDispatcher = (request, env2, ctx) => {
-      this.env = env2;
+    #fetchDispatcher = (request, env22, ctx) => {
+      this.env = env22;
       this.ctx = ctx;
       if (super.fetch === void 0) {
         throw new Error("Entrypoint class does not define a fetch() function.");
@@ -4237,6 +5083,7 @@ function wrapWorkerEntrypoint(klass) {
   };
 }
 __name(wrapWorkerEntrypoint, "wrapWorkerEntrypoint");
+__name2(wrapWorkerEntrypoint, "wrapWorkerEntrypoint");
 var WRAPPED_ENTRY;
 if (typeof middleware_insertion_facade_default === "object") {
   WRAPPED_ENTRY = wrapExportedHandler(middleware_insertion_facade_default);
@@ -4244,8 +5091,176 @@ if (typeof middleware_insertion_facade_default === "object") {
   WRAPPED_ENTRY = wrapWorkerEntrypoint(middleware_insertion_facade_default);
 }
 var middleware_loader_entry_default = WRAPPED_ENTRY;
-export {
-  __INTERNAL_WRANGLER_MIDDLEWARE__,
-  middleware_loader_entry_default as default
+
+// node_modules/wrangler/templates/middleware/middleware-ensure-req-body-drained.ts
+var drainBody2 = /* @__PURE__ */ __name(async (request, env3, _ctx, middlewareCtx) => {
+  try {
+    return await middlewareCtx.next(request, env3);
+  } finally {
+    try {
+      if (request.body !== null && !request.bodyUsed) {
+        const reader = request.body.getReader();
+        while (!(await reader.read()).done) {
+        }
+      }
+    } catch (e) {
+      console.error("Failed to drain the unused request body.", e);
+    }
+  }
+}, "drainBody");
+var middleware_ensure_req_body_drained_default2 = drainBody2;
+
+// node_modules/wrangler/templates/middleware/middleware-miniflare3-json-error.ts
+function reduceError2(e) {
+  return {
+    name: e?.name,
+    message: e?.message ?? String(e),
+    stack: e?.stack,
+    cause: e?.cause === void 0 ? void 0 : reduceError2(e.cause)
+  };
+}
+__name(reduceError2, "reduceError");
+var jsonError2 = /* @__PURE__ */ __name(async (request, env3, _ctx, middlewareCtx) => {
+  try {
+    return await middlewareCtx.next(request, env3);
+  } catch (e) {
+    const error4 = reduceError2(e);
+    return Response.json(error4, {
+      status: 500,
+      headers: { "MF-Experimental-Error-Stack": "true" }
+    });
+  }
+}, "jsonError");
+var middleware_miniflare3_json_error_default2 = jsonError2;
+
+// .wrangler/tmp/bundle-qtP1yw/middleware-insertion-facade.js
+var __INTERNAL_WRANGLER_MIDDLEWARE__2 = [
+  middleware_ensure_req_body_drained_default2,
+  middleware_miniflare3_json_error_default2
+];
+var middleware_insertion_facade_default2 = middleware_loader_entry_default;
+
+// node_modules/wrangler/templates/middleware/common.ts
+var __facade_middleware__2 = [];
+function __facade_register__2(...args) {
+  __facade_middleware__2.push(...args.flat());
+}
+__name(__facade_register__2, "__facade_register__");
+function __facade_invokeChain__2(request, env3, ctx, dispatch, middlewareChain) {
+  const [head, ...tail] = middlewareChain;
+  const middlewareCtx = {
+    dispatch,
+    next(newRequest, newEnv) {
+      return __facade_invokeChain__2(newRequest, newEnv, ctx, dispatch, tail);
+    }
+  };
+  return head(request, env3, ctx, middlewareCtx);
+}
+__name(__facade_invokeChain__2, "__facade_invokeChain__");
+function __facade_invoke__2(request, env3, ctx, dispatch, finalMiddleware) {
+  return __facade_invokeChain__2(request, env3, ctx, dispatch, [
+    ...__facade_middleware__2,
+    finalMiddleware
+  ]);
+}
+__name(__facade_invoke__2, "__facade_invoke__");
+
+// .wrangler/tmp/bundle-qtP1yw/middleware-loader.entry.ts
+var __Facade_ScheduledController__2 = class {
+  constructor(scheduledTime, cron, noRetry) {
+    this.scheduledTime = scheduledTime;
+    this.cron = cron;
+    this.#noRetry = noRetry;
+  }
+  #noRetry;
+  noRetry() {
+    if (!(this instanceof __Facade_ScheduledController__2)) {
+      throw new TypeError("Illegal invocation");
+    }
+    this.#noRetry();
+  }
 };
-//# sourceMappingURL=functionsWorker-0.005101745701872384.mjs.map
+__name(__Facade_ScheduledController__2, "__Facade_ScheduledController__");
+function wrapExportedHandler2(worker) {
+  if (__INTERNAL_WRANGLER_MIDDLEWARE__2 === void 0 || __INTERNAL_WRANGLER_MIDDLEWARE__2.length === 0) {
+    return worker;
+  }
+  for (const middleware of __INTERNAL_WRANGLER_MIDDLEWARE__2) {
+    __facade_register__2(middleware);
+  }
+  const fetchDispatcher = /* @__PURE__ */ __name(function(request, env3, ctx) {
+    if (worker.fetch === void 0) {
+      throw new Error("Handler does not export a fetch() function.");
+    }
+    return worker.fetch(request, env3, ctx);
+  }, "fetchDispatcher");
+  return {
+    ...worker,
+    fetch(request, env3, ctx) {
+      const dispatcher = /* @__PURE__ */ __name(function(type, init) {
+        if (type === "scheduled" && worker.scheduled !== void 0) {
+          const controller = new __Facade_ScheduledController__2(
+            Date.now(),
+            init.cron ?? "",
+            () => {
+            }
+          );
+          return worker.scheduled(controller, env3, ctx);
+        }
+      }, "dispatcher");
+      return __facade_invoke__2(request, env3, ctx, dispatcher, fetchDispatcher);
+    }
+  };
+}
+__name(wrapExportedHandler2, "wrapExportedHandler");
+function wrapWorkerEntrypoint2(klass) {
+  if (__INTERNAL_WRANGLER_MIDDLEWARE__2 === void 0 || __INTERNAL_WRANGLER_MIDDLEWARE__2.length === 0) {
+    return klass;
+  }
+  for (const middleware of __INTERNAL_WRANGLER_MIDDLEWARE__2) {
+    __facade_register__2(middleware);
+  }
+  return class extends klass {
+    #fetchDispatcher = (request, env3, ctx) => {
+      this.env = env3;
+      this.ctx = ctx;
+      if (super.fetch === void 0) {
+        throw new Error("Entrypoint class does not define a fetch() function.");
+      }
+      return super.fetch(request);
+    };
+    #dispatcher = (type, init) => {
+      if (type === "scheduled" && super.scheduled !== void 0) {
+        const controller = new __Facade_ScheduledController__2(
+          Date.now(),
+          init.cron ?? "",
+          () => {
+          }
+        );
+        return super.scheduled(controller);
+      }
+    };
+    fetch(request) {
+      return __facade_invoke__2(
+        request,
+        this.env,
+        this.ctx,
+        this.#dispatcher,
+        this.#fetchDispatcher
+      );
+    }
+  };
+}
+__name(wrapWorkerEntrypoint2, "wrapWorkerEntrypoint");
+var WRAPPED_ENTRY2;
+if (typeof middleware_insertion_facade_default2 === "object") {
+  WRAPPED_ENTRY2 = wrapExportedHandler2(middleware_insertion_facade_default2);
+} else if (typeof middleware_insertion_facade_default2 === "function") {
+  WRAPPED_ENTRY2 = wrapWorkerEntrypoint2(middleware_insertion_facade_default2);
+}
+var middleware_loader_entry_default2 = WRAPPED_ENTRY2;
+export {
+  __INTERNAL_WRANGLER_MIDDLEWARE__2 as __INTERNAL_WRANGLER_MIDDLEWARE__,
+  middleware_loader_entry_default2 as default
+};
+//# sourceMappingURL=functionsWorker-0.005101745701872384.js.map
