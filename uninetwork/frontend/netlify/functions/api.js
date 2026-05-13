@@ -67,22 +67,28 @@ app.post('/api/auth/register', async c => {
     const token = await generateToken(user, process.env.JWT_SECRET || 'uninetwork_secret_key_2026_dev');
     return c.json({ message: 'Registro exitoso. ¡Bienvenido a UniNetwork!', token, user }, 201);
   } catch (e) {
+    console.error("Register Error:", e);
     if (e.message?.includes('UNIQUE')) return c.json({ error: 'Esta Cédula de Identidad ya está registrada.' }, 409);
-    return c.json({ error: 'Error interno.' }, 500);
+    return c.json({ error: 'Error interno: ' + (e.message || String(e)) }, 500);
   }
 });
 
 app.post('/api/auth/login', async c => {
-  const { email, password } = await c.req.json();
-  if (!email || !password) return c.json({ error: 'Email y contraseña son obligatorios.' }, 400);
-  const D = null;
-  const user = await db.get(D, `SELECT u.*,un.name as university_name,un.acronym as university_acronym FROM users u LEFT JOIN universities un ON u.university_id=un.id WHERE u.email=?`, email);
-  if (!user) return c.json({ error: 'Credenciales incorrectas.' }, 401);
-  const ok = await verifyPassword(password, user.password_hash);
-  if (!ok) return c.json({ error: 'Credenciales incorrectas.' }, 401);
-  const token = await generateToken(user, process.env.JWT_SECRET || 'uninetwork_secret_key_2026_dev');
-  const { password_hash, ci_hash, ...safeUser } = user;
-  return c.json({ message: 'Inicio de sesión exitoso.', token, user: safeUser });
+  try {
+    const { email, password } = await c.req.json();
+    if (!email || !password) return c.json({ error: 'Email y contraseña son obligatorios.' }, 400);
+    const D = null;
+    const user = await db.get(D, `SELECT u.*,un.name as university_name,un.acronym as university_acronym FROM users u LEFT JOIN universities un ON u.university_id=un.id WHERE u.email=?`, email);
+    if (!user) return c.json({ error: 'Credenciales incorrectas.' }, 401);
+    const ok = await verifyPassword(password, user.password_hash);
+    if (!ok) return c.json({ error: 'Credenciales incorrectas.' }, 401);
+    const token = await generateToken(user, process.env.JWT_SECRET || 'uninetwork_secret_key_2026_dev');
+    const { password_hash, ci_hash, ...safeUser } = user;
+    return c.json({ message: 'Inicio de sesión exitoso.', token, user: safeUser });
+  } catch (e) {
+    console.error("Login Error:", e);
+    return c.json({ error: 'Error interno: ' + (e.message || String(e)) }, 500);
+  }
 });
 
 app.get('/api/auth/me', auth, async c => {
@@ -95,7 +101,7 @@ app.get('/api/auth/me', auth, async c => {
 // ── UNIVERSITIES ──────────────────────────────────────────────────────────────
 app.get('/api/universities', async c => {
   const { country, type, search } = c.req.query();
-  const D = c.env.DB;
+  const D = null;
   let sql = 'SELECT * FROM universities WHERE 1=1';
   const p = [];
   if (country) { sql += ' AND country=?'; p.push(country); }
@@ -131,17 +137,17 @@ app.get('/api/careers', async c => {
 });
 
 app.get('/api/careers/faculties', async c => {
-  const f = await db.all(c.env.DB, 'SELECT DISTINCT faculty FROM careers ORDER BY faculty');
+  const f = await db.all(null, 'SELECT DISTINCT faculty FROM careers ORDER BY faculty');
   return c.json({ faculties: f.map(r => r.faculty) });
 });
 
 app.get('/api/careers/countries', async c => {
-  const r = await db.all(c.env.DB, 'SELECT DISTINCT country FROM universities ORDER BY country');
+  const r = await db.all(null, 'SELECT DISTINCT country FROM universities ORDER BY country');
   return c.json({ countries: r.map(x => x.country) });
 });
 
 app.get('/api/careers/:id', async c => {
-  const career = await db.get(c.env.DB, `SELECT c.*,u.name as university_name,u.acronym as university_acronym,u.country,u.city,u.type as university_type,u.website,u.description as university_description FROM careers c JOIN universities u ON c.university_id=u.id WHERE c.id=?`, c.req.param('id'));
+  const career = await db.get(null, `SELECT c.*,u.name as university_name,u.acronym as university_acronym,u.country,u.city,u.type as university_type,u.website,u.description as university_description FROM careers c JOIN universities u ON c.university_id=u.id WHERE c.id=?`, c.req.param('id'));
   if (!career) return c.json({ error: 'Carrera no encontrada.' }, 404);
   return c.json({ career });
 });
@@ -165,7 +171,7 @@ app.post('/api/posts', auth, async c => {
 });
 
 app.get('/api/posts/:postId/comments', auth, async c => {
-  const comments = await db.all(c.env.DB, `SELECT co.*,u.full_name as author_name,u.profile_pic as author_pic,un.acronym as university_acronym FROM comments co JOIN users u ON co.user_id=u.id LEFT JOIN universities un ON u.university_id=un.id WHERE co.post_id=? ORDER BY co.created_at ASC`, c.req.param('postId'));
+  const comments = await db.all(null, `SELECT co.*,u.full_name as author_name,u.profile_pic as author_pic,un.acronym as university_acronym FROM comments co JOIN users u ON co.user_id=u.id LEFT JOIN universities un ON u.university_id=un.id WHERE co.post_id=? ORDER BY co.created_at ASC`, c.req.param('postId'));
   return c.json({ comments });
 });
 
@@ -272,7 +278,7 @@ app.get('/api/profile/suggestions', auth, async c => {
 
 // ── VOCATIONAL ────────────────────────────────────────────────────────────────
 app.get('/api/vocational/questions', async c => {
-  const questions = await db.all(c.env.DB, 'SELECT id,text,category,weight,order_num FROM vocational_questions ORDER BY order_num ASC');
+  const questions = await db.all(null, 'SELECT id,text,category,weight,order_num FROM vocational_questions ORDER BY order_num ASC');
   const grouped = {};
   for (const cat of CATEGORIES) {
     grouped[cat] = { code: cat, label: CATEGORY_LABELS[cat], description: CATEGORY_DESCRIPTIONS[cat], questions: questions.filter(q => q.category === cat) };
@@ -298,7 +304,7 @@ app.post('/api/vocational/submit', auth, async c => {
 });
 
 app.get('/api/vocational/results', auth, async c => {
-  const results = await db.all(c.env.DB, 'SELECT * FROM vocational_results WHERE user_id=? ORDER BY created_at DESC', c.get('user').id);
+  const results = await db.all(null, 'SELECT * FROM vocational_results WHERE user_id=? ORDER BY created_at DESC', c.get('user').id);
   return c.json({ results });
 });
 

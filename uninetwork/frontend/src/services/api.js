@@ -12,8 +12,11 @@ async function request(endpoint, options = {}) {
     ...options,
     headers: { ...getHeaders(), ...options.headers },
   });
-  const data = await res.json();
-  if (!res.ok) throw new Error(data.error || 'Error del servidor');
+  const data = await res.json().catch(() => null);
+  if (!res.ok) {
+    if (!data) throw new Error('Error de red o el servidor no devolvió JSON válido.');
+    throw new Error(data.error || data.errorMessage || data.message || JSON.stringify(data));
+  }
   return data;
 }
 
